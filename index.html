@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clash of Boxes | صراع الصناديق - Official Arena Game</title>
+  <meta name="description" content="Clash of Boxes (صراع الصناديق) - Next-Gen Multiplayer Strategy, Balance Scale, Secret Vault, and Clash of Souls Arena Game. Download now on Google Play!" />
+  <meta name="theme-color" content="#090A14" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cairo & Inter & Orbitron -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Inter:wght@500;700;800;900&family=Noto+Sans+JP:wght@700;900&family=Noto+Sans+KR:wght@700;900&family=Noto+Sans+SC:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            appBg: '#090A14',
+            appSurface: '#141629',
+            appCard: '#1B1E36',
+            appGold: '#F0B90B',
+            appAccentGold: '#FFD700',
+            appPurple: '#7C4DFF',
+            appCyan: '#38BDF8',
+            appEmerald: '#10B981',
+            appCrimson: '#FF2A5F',
+            appAmber: '#F59E0B',
+          },
+          fontFamily: {
+            sans: ['Cairo', 'Inter', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --gold: #F0B90B;
+      --crimson: #FF2A5F;
+      --cyan: #38BDF8;
+      --emerald: #10B981;
+      --purple: #7C4DFF;
+    }
+
+    body {
+      background-color: #090A14;
+      color: #ffffff;
+      font-family: 'Cairo', 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Cyber Grid & Glow */
+    .cyber-grid-bg {
+      background-size: 34px 34px;
+      background-image: 
+        linear-gradient(to right, rgba(240, 185, 11, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    }
+
+    /* 3D Arcade Button Lip */
+    .btn-3d-gold {
+      background: linear-gradient(180deg, #FFE066 0%, #F0B90B 55%, #D97706 100%);
+      box-shadow: 0 6px 0 #78350F, 0 12px 24px rgba(240, 185, 11, 0.35);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-3d-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #78350F, 0 16px 30px rgba(240, 185, 11, 0.5);
+    }
+    .btn-3d-gold:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #78350F, 0 4px 10px rgba(240, 185, 11, 0.3);
+    }
+
+    .btn-3d-emerald {
+      background: linear-gradient(180deg, #34D399 0%, #10B981 60%, #059669 100%);
+      box-shadow: 0 6px 0 #064E3B, 0 12px 24px rgba(16, 185, 129, 0.35);
+      transition: all 0.15s ease;
+    }
+    .btn-3d-emerald:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #064E3B, 0 18px 32px rgba(16, 185, 129, 0.5);
+    }
+    .btn-3d-emerald:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #064E3B;
+    }
+
+    /* 3D Card Styles matching Flutter App */
+    .game-card-3d {
+      background: linear-gradient(145deg, #232742 0%, #141627 100%);
+      box-shadow: 0 8px 0 #090A12, 0 14px 28px rgba(0, 0, 0, 0.55);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .game-card-3d:hover {
+      transform: translateY(-6px) scale(1.015);
+    }
+
+    /* Floating Animation */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(-5px); }
+      50% { transform: translateY(5px); }
+    }
+    .animate-float {
+      animation: floatSlow 3.2s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.06); }
+    }
+    .animate-pulse-glow {
+      animation: pulseGlow 2.5s ease-in-out infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090A14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #25294A;
+      border-radius: 9999px;
+      border: 1px solid rgba(240, 185, 11, 0.3);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F0B90B;
+    }
+  </style>
+</head>
+<body class="cyber-grid-bg selection:bg-appGold selection:text-black">
+
+  <!-- Ambient Background Neon Orbs -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-36 -left-36 w-96 h-96 rounded-full bg-appGold/15 blur-[110px]"></div>
+    <div class="absolute top-1/3 -right-36 w-[28rem] h-[28rem] rounded-full bg-appCrimson/15 blur-[130px]"></div>
+    <div class="absolute -bottom-36 left-1/4 w-[26rem] h-[26rem] rounded-full bg-appCyan/15 blur-[120px]"></div>
+  </div>
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#090A14]/85 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-appAccentGold via-appGold to-amber-700 p-0.5 shadow-lg shadow-appGold/25 group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-[#121426] rounded-[14px] flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-tr from-appGold/25 to-transparent"></div>
+            <i class="fa-solid fa-boxes-stacked text-appGold text-xl"></i>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-black text-lg sm:text-xl tracking-wide bg-gradient-to-r from-white via-amber-200 to-appGold bg-clip-text text-transparent">
+              CLASH OF BOXES
+            </span>
+            <span class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-black rounded-full bg-appGold/20 text-appGold border border-appGold/40">
+              OFFICIAL
+            </span>
+          </div>
+          <p class="text-xs text-white/60 font-bold" data-i18n="navSubtitle">حلبة صراع الصناديق العالمية</p>
+        </div>
+      </a>
+
+      <!-- Quick Links (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-white/80">
+        <a href="#arena-modes" class="hover:text-appGold transition-colors" data-i18n="navModes">أطوار اللعب (8)</a>
+        <a href="#interactive-lab" class="hover:text-appCyan transition-colors" data-i18n="navInteractive">تجربة حية</a>
+        <a href="#souls-arsenal" class="hover:text-appCrimson transition-colors" data-i18n="navArsenal">ترسانة الأرواح (20)</a>
+        <a href="#rewards-streak" class="hover:text-appEmerald transition-colors" data-i18n="navRewards">المكافآت والسلسلة</a>
+        <a href="#download-box" class="hover:text-appGold transition-colors" data-i18n="navDownload">التحميل</a>
+      </nav>
+
+      <!-- Language Picker (12 Languages) + Download CTA -->
+      <div class="flex items-center gap-2.5">
+        <!-- 12-Language Dropdown Button -->
+        <div class="relative" id="langDropdownContainer">
+          <button onclick="toggleLangMenu()" id="langBtn" class="flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-[#17192D] hover:bg-[#222642] border border-appGold/40 text-xs sm:text-sm font-black transition-all shadow-md">
+            <span id="currentLangFlag" class="text-base">🇯🇴</span>
+            <span id="currentLangName">العربية</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-appGold"></i>
+          </button>
+
+          <!-- Dropdown Menu for 12 Languages -->
+          <div id="langMenu" class="hidden absolute top-full mt-2 end-0 w-64 max-h-96 overflow-y-auto rounded-2xl bg-[#16182D] border-2 border-appGold/60 shadow-2xl shadow-black/90 p-2 z-50 grid grid-cols-1 gap-1">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Scroll to Bottom Download Box CTA -->
+        <a href="#download-box" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-2xl btn-3d-gold text-black font-black text-xs sm:text-sm">
+          <i class="fa-brands fa-google-play text-base"></i>
+          <span data-i18n="navDownloadBtn">حمل اللعبة</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 12 Languages Quick Pill Bar -->
+    <div class="bg-[#0D0F1E]/90 border-t border-white/5 py-1.5 px-3 overflow-x-auto">
+      <div class="max-w-7xl mx-auto flex items-center justify-start lg:justify-center gap-1.5 min-w-max" id="quickLangBar">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="relative z-10">
+
+    <!-- ================= 1. HERO SECTION ================= -->
+    <section class="pt-8 pb-16 sm:pt-14 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Hero Text Column -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-start">
+          
+          <!-- Live Arena Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-appCrimson/20 via-appGold/20 to-appCyan/20 border border-appGold/50 shadow-lg">
+            <span class="w-2.5 h-2.5 rounded-full bg-appEmerald animate-ping"></span>
+            <span class="text-xs sm:text-sm font-black text-appGold tracking-wide" data-i18n="heroBadge">
+              🔥 الموسم الجديد متاح الآن • 8 ألعاب تنافسية في تطبيق واحد!
+            </span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-black leading-tight tracking-tight">
+            <span class="block text-white" data-i18n="heroTitle1">ادخل حلبة</span>
+            <span class="bg-gradient-to-r from-appAccentGold via-amber-400 to-orange-500 bg-clip-text text-transparent drop-shadow-sm" data-i18n="heroTitle2">
+              صراع الصناديق
+            </span>
+          </h1>
+
+          <!-- Hero Description -->
+          <p class="text-base sm:text-lg text-white/75 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-i18n="heroDesc">
+            اللعبة التنافسية الجماعية الأولى التي تجمع بين الذكاء، السرعة، التخطيط، والحظ! واجه لاعبين حقيقيين في بطولات ميزان الصندوق، صراع الأرواح، كسر شيفرة الخزنة، وصناديق الإقصاء، واجمع النجوم والعملات والشرارات!
+          </p>
+
+          <!-- In-Game Currency & Level Pills (From main.dart Gamer HUD) -->
+          <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 pt-1">
+            <div class="p-3 rounded-2xl bg-[#141629]/90 border border-appAccentGold/40 flex items-center justify-center gap-2.5 shadow-md">
+              <div class="w-8 h-8 rounded-full bg-appAccentGold/20 flex items-center justify-center text-appAccentGold">
+                <i class="fa-solid fa-star text-sm"></i>
+              </div>
+              <div class="text-start">
+                <div class="text-xs text-white/50 font-bold" data-i18n="currStars">النجوم</div>
+                <div class="text-sm font-black text-white">STARS ⭐</div>
+              </div>
+            </div>
+            <div class="p-3 rounded-2xl bg-[#141629]/90 border border-appCyan/40 flex items-center justify-center gap-2.5 shadow-md">
+              <div class="w-8 h-8 rounded-full bg-appCyan/20 flex items-center justify-center text-appCyan">
+                <i class="fa-solid fa-coins text-sm"></i>
+              </div>
+              <div class="text-start">
+                <div class="text-xs text-white/50 font-bold" data-i18n="currCoins">العملات</div>
+                <div class="text-sm font-black text-white">COINS 🪙</div>
+              </div>
+            </div>
+            <div class="p-3 rounded-2xl bg-[#141629]/90 border border-appCrimson/40 flex items-center justify-center gap-2.5 shadow-md">
+              <div class="w-8 h-8 rounded-full bg-appCrimson/20 flex items-center justify-center text-appCrimson">
+                <i class="fa-solid fa-bolt text-sm"></i>
+              </div>
+              <div class="text-start">
+                <div class="text-xs text-white/50 font-bold" data-i18n="currSpark">الشرارة</div>
+                <div class="text-sm font-black text-white">SPARK ⚡</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+            <a href="#download-box" class="w-full sm:w-auto px-8 py-4 rounded-2xl btn-3d-gold text-black font-black text-base sm:text-lg flex items-center justify-center gap-3">
+              <i class="fa-brands fa-google-play text-2xl"></i>
+              <div class="text-start leading-tight">
+                <div class="text-[10px] uppercase tracking-wider font-extrabold opacity-80" data-i18n="heroPlaySub">متاح مجاناً على</div>
+                <div data-i18n="heroPlayMain">Google Play • حمل الآن</div>
+              </div>
+            </a>
+
+            <a href="#interactive-lab" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-[#1B1E36] hover:bg-[#25294A] text-white font-black text-base border-2 border-appCyan/50 shadow-lg shadow-appCyan/10 flex items-center justify-center gap-2.5 transition-all">
+              <i class="fa-solid fa-gamepad text-appCyan text-xl"></i>
+              <span data-i18n="heroTryInteractive">جرب محاكي الألعاب الآن</span>
+            </a>
+          </div>
+
+          <!-- Quick Trust Badges -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-2 text-xs font-bold text-white/60">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-appEmerald"></i> <span data-i18n="trustSafe">محمي وموثق 100%</span></span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-earth-americas text-appCyan"></i> <span data-i18n="trustLangs">يدعم 12 لغة عالمية</span></span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-users text-appGold"></i> <span data-i18n="trustMulti">بطولات حية (4 - 8 لاعبين)</span></span>
+          </div>
+        </div>
+
+        <!-- Hero Interactive Phone Mockup (Exact Replica of main.dart CounterHomePage) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-[360px]">
+            <!-- Outer Glow -->
+            <div class="absolute -inset-3 rounded-[48px] bg-gradient-to-b from-appGold/30 via-appCrimson/25 to-appCyan/30 blur-2xl opacity-80"></div>
+            
+            <!-- Phone Frame -->
+            <div class="relative rounded-[42px] bg-[#090A14] border-[6px] border-[#25294A] shadow-2xl overflow-hidden p-3 space-y-2.5">
+              
+              <!-- Phone Top Notch -->
+              <div class="flex items-center justify-between px-3 pt-1 pb-1 text-[10px] text-white/60 font-bold">
+                <span>9:41</span>
+                <div class="w-20 h-4 rounded-full bg-black border border-white/10"></div>
+                <div class="flex items-center gap-1">
+                  <i class="fa-solid fa-wifi"></i>
+                  <i class="fa-solid fa-battery-full text-appEmerald"></i>
+                </div>
+              </div>
+
+              <!-- 1. Gamer HUD (From main.dart _buildUnifiedGamerHUD) -->
+              <div class="rounded-3xl bg-gradient-to-br from-[#25294A]/90 to-[#121426]/95 border border-appGold/50 p-3 shadow-lg space-y-2.5">
+                <div class="flex items-center gap-2.5">
+                  <div class="relative">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-appGold via-orange-500 to-appPurple p-0.5">
+                      <div class="w-full h-full rounded-full bg-[#141629] flex items-center justify-center text-lg">
+                        👑
+                      </div>
+                    </div>
+                    <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 px-1.5 py-0.2 bg-gradient-to-r from-appGold to-amber-500 text-black font-black text-[8px] rounded-full border border-[#121426]">
+                      LV.24
+                    </span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-1">
+                      <span class="font-black text-xs text-white truncate" data-i18n="mockPlayerName">بطل_الصناديق</span>
+                      <i class="fa-solid fa-circle-check text-appGold text-[10px]"></i>
+                    </div>
+                    <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mt-1">
+                      <div class="w-3/4 h-full bg-gradient-to-r from-appGold to-orange-500 rounded-full"></div>
+                    </div>
+                    <div class="flex justify-between text-[8px] font-bold text-white/60 mt-0.5">
+                      <span>XP 1,850 / 2,400</span>
+                      <span class="text-appGold">77%</span>
+                    </div>
+                  </div>
+                  <div class="w-9 h-9 rounded-xl bg-appCyan/15 border border-appCyan/40 flex items-center justify-center text-appCyan">
+                    <i class="fa-solid fa-sliders text-sm"></i>
+                  </div>
+                </div>
+
+                <!-- HUD Currencies Row -->
+                <div class="grid grid-cols-3 gap-1.5">
+                  <div class="bg-[#0B0C17]/80 border border-appAccentGold/30 rounded-xl px-2 py-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-star text-appAccentGold text-xs"></i>
+                    <div>
+                      <div class="text-[10px] font-black leading-none">480</div>
+                      <div class="text-[7px] text-white/50 font-bold" data-i18n="currStars">النجوم</div>
+                    </div>
+                  </div>
+                  <div class="bg-[#0B0C17]/80 border border-appCyan/30 rounded-xl px-2 py-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-coins text-appCyan text-xs"></i>
+                    <div>
+                      <div class="text-[10px] font-black leading-none">12.5K</div>
+                      <div class="text-[7px] text-white/50 font-bold" data-i18n="currCoins">العملات</div>
+                    </div>
+                  </div>
+                  <div class="bg-[#0B0C17]/80 border border-appCrimson/30 rounded-xl px-2 py-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-bolt text-appCrimson text-xs"></i>
+                    <div>
+                      <div class="text-[10px] font-black leading-none">95</div>
+                      <div class="text-[7px] text-white/50 font-bold" data-i18n="currSpark">الشرارة</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Live Arena Banner -->
+              <div class="rounded-2xl bg-gradient-to-r from-appEmerald/20 to-appPurple/20 border border-appEmerald/60 px-3 py-2 flex items-center justify-between">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="w-2 h-2 rounded-full bg-appEmerald animate-ping"></span>
+                  <span class="text-[10px] font-extrabold text-white truncate" data-i18n="mockLiveBanner">🔥 صراع الأرواح وميزان الصندوق متاحان!</span>
+                </div>
+                <span class="px-2 py-0.5 rounded-md bg-appEmerald text-black font-black text-[9px]" data-i18n="mockQuestsBtn">المهام</span>
+              </div>
+
+              <!-- 3. Featured Square Hero Card (Rotating Preview) -->
+              <div onclick="cycleFeaturedMockup()" class="cursor-pointer aspect-square rounded-[26px] bg-gradient-to-br from-[#2B1934] via-[#101223] to-[#090A14] border-2 border-appCrimson shadow-lg shadow-appCrimson/20 relative overflow-hidden flex flex-col items-center justify-center p-4 group">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,42,95,0.28)_0%,transparent_70%)]"></div>
+                <span class="absolute top-3 right-3 px-2 py-0.5 rounded-md bg-gradient-to-r from-appCrimson to-orange-500 text-white font-black text-[9px] shadow">
+                  NEW 🔥 TAP TO SWITCH
+                </span>
+                <div id="mockFeaturedEmoji" class="text-7xl animate-float select-none mb-4 transition-transform group-hover:scale-110">
+                  ⚔️📦
+                </div>
+                <div class="absolute bottom-3 inset-x-3 bg-[#0B0D19]/85 backdrop-blur-md border border-appCrimson/50 rounded-2xl px-3 py-2 flex items-center justify-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-appCrimson"></span>
+                  <span id="mockFeaturedTitle" class="text-[11px] font-black text-white truncate" data-i18n="modeSoulsTitle">
+                    صراع الأرواح • 24 صندوقاً قاتلاً
+                  </span>
+                </div>
+              </div>
+
+              <!-- 4. Category Filter Bar (Arena Games vs Rewards Vault) -->
+              <div class="grid grid-cols-2 gap-1.5 bg-[#141629] p-1 rounded-xl border border-white/10 text-[10px] font-black">
+                <div class="bg-gradient-to-r from-appGold to-amber-500 text-black rounded-lg py-1.5 text-center flex items-center justify-center gap-1">
+                  <i class="fa-solid fa-gamepad"></i>
+                  <span data-i18n="catArena">ألعاب التحدي</span>
+                </div>
+                <div class="text-white/70 py-1.5 text-center flex items-center justify-center gap-1">
+                  <i class="fa-solid fa-star text-appGold"></i>
+                  <span data-i18n="catRewards">المكافآت والخزينة</span>
+                </div>
+              </div>
+
+              <!-- 5. 3-Column Secondary Cards Row -->
+              <div class="grid grid-cols-3 gap-2 pt-0.5">
+                <a href="#interactive-lab" class="rounded-2xl bg-gradient-to-b from-[#232742] to-[#141627] border border-appCyan/50 p-2 text-center hover:scale-105 transition-transform">
+                  <div class="text-2xl mb-1">⚖️</div>
+                  <div class="text-[9px] font-black text-white truncate" data-i18n="modeScaleShort">ميزان الصندوق</div>
+                </a>
+                <a href="#interactive-lab" class="rounded-2xl bg-gradient-to-b from-[#232742] to-[#141627] border border-appAmber/50 p-2 text-center hover:scale-105 transition-transform">
+                  <div class="text-2xl mb-1">🔐</div>
+                  <div class="text-[9px] font-black text-white truncate" data-i18n="modeVaultShort">صندوق الخزنة</div>
+                </a>
+                <a href="#arena-modes" class="rounded-2xl bg-gradient-to-b from-[#232742] to-[#141627] border border-pink-500/50 p-2 text-center hover:scale-105 transition-transform">
+                  <div class="text-2xl mb-1">🎡</div>
+                  <div class="text-[9px] font-black text-white truncate" data-i18n="modeWheelShort">عجلة الحظ 3D</div>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 2. ALL 8 ARENA MODES + 3 REWARD SYSTEMS ================= -->
+    <section id="arena-modes" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-appGold/15 border border-appGold/40 text-appGold text-xs font-black">
+          <i class="fa-solid fa-cubes"></i>
+          <span data-i18n="modesSectionTag">11 نظاماً تفاعلياً داخل التطبيق</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white" data-i18n="modesSectionTitle">
+          استكشف أطوار اللعب في صراع الصناديق
+        </h2>
+        <p class="text-white/65 text-sm sm:text-base font-medium" data-i18n="modesSectionDesc">
+          كل طور صُمم بقوانين فيزيائية وتكتيكية فريدة، مع بطولات جماعية (8 لاعبين) ومستويين للصعوبة (سهل وصعب).
+        </p>
+      </div>
+
+      <!-- Modes Grid (8 Arena Games) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- 1. Clash of Boxes -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-appGold/60 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-appGold/20 border border-appGold flex items-center justify-center text-3xl shadow-lg">
+                📦
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-appGold text-black font-black text-[11px]">MAIN ARENA</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2" data-i18n="card1Title">صراع الصناديق (Clash of Boxes)</h3>
+            <p class="text-xs sm:text-sm text-white/70 leading-relaxed" data-i18n="card1Desc">
+              البطولة الرئيسية! تنافس في غرف تضم 8 لاعبين، افتح الصناديق التكتيكية واجمع أعلى النقاط للتأهل للجولة النهائية وحصد الجائزة الكبرى.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-black text-appGold">
+            <span data-i18n="card1Meta">🥇 جوائز المركز الأول والثاني</span>
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+        </div>
+
+        <!-- 2. Clash of Souls -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-appCrimson/70 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-appCrimson/20 border border-appCrimson flex items-center justify-center text-3xl shadow-lg">
+                ⚔️
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-gradient-to-r from-appCrimson to-orange-500 text-white font-black text-[11px]">NEW 🔥</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2" data-i18n="card2Title">صراع الأرواح (Box Souls)</h3>
+            <p class="text-xs sm:text-sm text-white/70 leading-relaxed" data-i18n="card2Desc">
+              4 لاعبين يبدأون بشريط روح 100%! افتح من بين 20 أو 24 صندوقاً تحتوي على أسلحة هجومية (سكين، قنبلة، مقصلة)، منوّم مغناطيسي، أو دروع وإبر حياة!
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-black text-appCrimson">
+            <span data-i18n="card2Meta">🩸 20 عنصراً قتالياً ودفاعياً</span>
+            <i class="fa-solid fa-skull"></i>
+          </div>
+        </div>
+
+        <!-- 3. Box Scale -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-appCyan/70 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-appCyan/20 border border-appCyan flex items-center justify-center text-3xl shadow-lg">
+                ⚖️
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-appCyan/20 text-appCyan border border-appCyan/50 font-black text-[11px]">PHYSICS ⚖️</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2" data-i18n="card3Title">ميزان الصندوق (Box Scale)</h3>
+            <p class="text-xs sm:text-sm text-white/70 leading-relaxed" data-i18n="card3Desc">
+              ميزان فيزيائي حي ذو كفتين! لديك 20 ثانية فقط و6 صناديق بأوزان مختلفة؛ اختر التركيبة الصحيحة التي تعادل الوزن الذهبي المستهدف بالضبط!
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-black text-appCyan">
+            <span data-i18n="card3Meta">⏳ سرعة الحساب والتوازن</span>
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+        </div>
+
+        <!-- 4. Box Vault -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-appAmber/70 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-appAmber/20 border border-appAmber flex items-center justify-center text-3xl shadow-lg">
+                🔐
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-appAmber/20 text-appAmber border border-appAmber/50 font-black text-[11px]">5 DIGITS 🔓</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2" data-i18n="card4Title">صندوق الخزنة (Box Vault)</h3>
+            <p class="text-xs sm:text-sm text-white/70 leading-relaxed" data-i18n="card4Desc">
+              افتح الخزنة الكبرى المكونة من 5 أرقام سرية! اقرأ تلميح الخزنة الذكي في كل جولة وخمّن الرقم السري (1-9) خلال 10 ثوانٍ قبل خصومك.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-black text-appAmber">
+            <span data-i18n="card4Meta">🔍 تلميحات ذكية وجولات حاسمة</span>
+            <i class="fa-solid fa-vault"></i>
+          </div>
+        </div>
+
+        <!-- 5. Box Elimination -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-red-500/60 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-red-500/20 border border-red-500 flex items-center justify-center text-3xl shadow-lg">
+                🔥
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-red-500/20 text-red-400 border border-red-500/40 font-black text-[11px]">SURVIVAL</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2" data-i18n="card5Title">صناديق الإقصاء (Elimination)</h3>
+            <p class="text-xs sm:text-sm text-white/70 leading-relaxed" data-i18n="card5Desc">
+              حلبة البقاء للأذكى! كل جولة تقصي أصحاب الاختيارات الخاطئة حتى يبقى البطل الأخير الصامد في الحلبة.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-black text-red-400">
+            <span data-i18n="card5Meta">💀 البقاء للأقوى</span>
+            <i class="fa-solid fa-fire"></i>
+          </div>
+        </div>
+
+        <!-- 6. Lucky Box -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-yellow-400/60 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-yellow-400/20 border border-yellow-400 flex items-center justify-center text-3xl shadow-lg">
+                🎰
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/40 font-black text-[11px]">JACKPOT</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2" data-i18n="card6Title">صندوق الحظ (Lucky Box)</h3>
+            <p class="text-xs sm:text-sm text-white/70 leading-relaxed" data-i18n="card6Desc">
+              اختبر حدسك في فتح الصناديق الغامضة ذات المضاعفات العالية وتجنب الفخاخ لمضاعفة رصيدك من النقاط والنجوم.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-black text-yellow-300">
+            <span data-i18n="card6Meta">✨ مضاعفات ومفاجآت</span>
+            <i class="fa-solid fa-dice"></i>
+          </div>
+        </div>
+
+        <!-- 7. Find the Box -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-appEmerald/60 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-appEmerald/20 border border-appEmerald flex items-center justify-center text-3xl shadow-lg">
+                🧭
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-appEmerald/20 text-appEmerald border border-appEmerald/40 font-black text-[11px]">MEMORY</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2" data-i18n="card7Title">ابحث عن الصندوق (Find Box)</h3>
+            <p class="text-xs sm:text-sm text-white/70 leading-relaxed" data-i18n="card7Desc">
+              قوة الملاحظة والذاكرة البصرية السريعة هي سلاحك لتتبع الصندوق الفائز وسط الخدع البصرية السريعة.
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-black text-appEmerald">
+            <span data-i18n="card7Meta">👁️ دقة الملاحظة والتركيز</span>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+
+        <!-- 8. 3D Fortune Wheel & Mystery Buttons -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-pink-500/60 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-14 h-14 rounded-2xl bg-pink-500/20 border border-pink-500 flex items-center justify-center text-3xl shadow-lg">
+                🎡
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/40 font-black text-[11px]">3D CASINO RIM</span>
+            </div>
+            <h3 class="text-xl font-black text-white mb-2" data-i18n="card8Title">دولاب الحظ وأزرار القرارات</h3>
+            <p class="text-xs sm:text-sm text-white/70 leading-relaxed" data-i18n="card8Desc">
+              دولاب حظ ثلاثي الأبعاد بإضاءة كازينو وتكتكة فيزيائية حقيقية + صناديق أزرار الحظ الغامضة مع 3 محاولات يومية متجددة!
+            </p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-black text-pink-400">
+            <span data-i18n="card8Meta">🎯 3 محاولات يومية مجانية</span>
+            <i class="fa-solid fa-dharmachakra"></i>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 3. INTERACTIVE MINI-GAMES LAB (PLAY IN BROWSER!) ================= -->
+    <section id="interactive-lab" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="rounded-[36px] bg-gradient-to-b from-[#161930] to-[#0D0F1D] border-2 border-appCyan/50 p-6 sm:p-10 shadow-2xl">
+        
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 pb-6 border-b border-white/10">
+          <div class="text-center md:text-start space-y-2">
+            <span class="px-3 py-1 rounded-full bg-appCyan/20 text-appCyan text-xs font-black border border-appCyan/40" data-i18n="labBadge">
+              🎮 محاكي تفاعلي مباشر من كود اللعبة
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white" data-i18n="labTitle">
+              جرب فيزياء وتكتيك اللعبة الآن قبل التحميل!
+            </h2>
+          </div>
+
+          <!-- Simulator Mode Switcher -->
+          <div class="flex flex-wrap justify-center gap-2 bg-[#090A14] p-1.5 rounded-2xl border border-white/10">
+            <button onclick="switchLabTab('scale')" id="tabBtn-scale" class="px-4 py-2.5 rounded-xl font-black text-xs sm:text-sm bg-appCyan text-black transition-all flex items-center gap-2">
+              <span>⚖️</span> <span data-i18n="labTabScale">ميزان الصندوق</span>
+            </button>
+            <button onclick="switchLabTab('vault')" id="tabBtn-vault" class="px-4 py-2.5 rounded-xl font-black text-xs sm:text-sm text-white/75 hover:text-white transition-all flex items-center gap-2">
+              <span>🔐</span> <span data-i18n="labTabVault">صندوق الخزنة</span>
+            </button>
+            <button onclick="switchLabTab('souls')" id="tabBtn-souls" class="px-4 py-2.5 rounded-xl font-black text-xs sm:text-sm text-white/75 hover:text-white transition-all flex items-center gap-2">
+              <span>⚔️</span> <span data-i18n="labTabSouls">صراع الأرواح</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 1: Interactive Balance Scale Simulator (From box_scale.dart) -->
+        <div id="labPanel-scale" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Visual Balance Scale Stage -->
+          <div class="lg:col-span-7 rounded-3xl bg-[#0B1120] border-2 border-appCyan/50 p-6 flex flex-col justify-between min-h-[340px] relative overflow-hidden">
+            <div class="flex items-center justify-between z-10">
+              <span class="px-3 py-1 rounded-xl bg-amber-500/20 border border-amber-400/50 text-amber-300 font-black text-xs sm:text-sm">
+                <span data-i18n="scaleTargetLabel">الوزن المستهدف:</span> <span id="simTargetWeight">65</span> KG
+              </span>
+              <span id="simScaleStatus" class="text-xs sm:text-sm font-black text-appCyan" data-i18n="scaleLiveHint">
+                اختر الصناديق لموازنة الكفتين!
+              </span>
+              <span class="px-3 py-1 rounded-xl bg-appCyan/20 border border-appCyan/50 text-appCyan font-black text-xs sm:text-sm">
+                <span data-i18n="scaleCurrentLabel">كفتك:</span> <span id="simMyWeight">0</span> KG
+              </span>
+            </div>
+
+            <!-- SVG Animated Balance Scale -->
+            <div class="my-6 flex flex-col items-center justify-center select-none">
+              <div id="scaleBeamContainer" class="w-full max-w-md transition-transform duration-500 ease-out" style="transform: rotate(12deg);">
+                <!-- Crossbeam -->
+                <div class="h-3 w-full rounded-full bg-gradient-to-r from-appCyan via-white to-amber-400 shadow-lg relative flex items-center justify-between px-4">
+                  <!-- Left Pan (Player Boxes) -->
+                  <div class="absolute -left-2 top-2 flex flex-col items-center w-28" style="transform: rotate(calc(-1 * var(--beam-angle, 12deg)));">
+                    <div class="w-0.5 h-14 bg-appCyan/70"></div>
+                    <div id="simLeftPanBoxes" class="min-h-[38px] flex flex-wrap justify-center gap-1 mb-1">
+                      <span class="text-[10px] text-white/40 font-bold">0 KG</span>
+                    </div>
+                    <div class="w-28 h-3.5 rounded-b-2xl bg-gradient-to-r from-sky-700 via-appCyan to-sky-700 shadow-md"></div>
+                  </div>
+
+                  <!-- Center Needle -->
+                  <div class="mx-auto -mt-8 w-1.5 h-10 rounded-full bg-appCyan shadow"></div>
+
+                  <!-- Right Pan (Golden Target Weight) -->
+                  <div class="absolute -right-2 top-2 flex flex-col items-center w-28">
+                    <div class="w-0.5 h-14 bg-amber-400/70"></div>
+                    <div class="w-20 h-12 rounded-t-2xl rounded-b-lg bg-gradient-to-br from-yellow-300 via-amber-500 to-amber-800 border-2 border-yellow-200 flex flex-col items-center justify-center shadow-lg">
+                      <span id="simRightPanText" class="text-slate-950 font-black text-lg leading-none">65</span>
+                      <span class="text-[9px] font-black text-amber-950">KG</span>
+                    </div>
+                    <div class="w-28 h-3.5 rounded-b-2xl bg-gradient-to-r from-amber-800 via-amber-400 to-amber-800 shadow-md"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Pillar Stand -->
+              <div class="w-4 h-24 bg-gradient-to-b from-slate-300 to-slate-800 rounded-t-lg -mt-1"></div>
+              <div class="w-32 h-3.5 rounded-full bg-gradient-to-r from-slate-800 via-appCyan to-slate-800"></div>
+            </div>
+
+            <div class="text-center">
+              <button onclick="initScaleSimulator()" class="text-xs font-bold text-white/60 hover:text-appCyan underline">
+                <i class="fa-solid fa-rotate"></i> <span data-i18n="simNewRound">توليد جولة أوزان جديدة</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 6 Weight Boxes Selector -->
+          <div class="lg:col-span-5 space-y-4">
+            <h3 class="text-lg font-black text-appCyan text-center" data-i18n="scaleBoxesPickTitle">
+              اضغط على الصناديق الـ 6 لوضعها على الكفة:
+            </h3>
+            <div id="simScaleBoxesGrid" class="grid grid-cols-3 gap-3">
+              <!-- Populated by JS -->
+            </div>
+            <button onclick="initScaleSimulator()" class="w-full py-3.5 rounded-2xl btn-3d-emerald text-black font-black text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span data-i18n="scaleResetBtn">جولة جديدة بأوزان عشوائية</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 2: Interactive Vault Cracker Simulator (From box_vault.dart) -->
+        <div id="labPanel-vault" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-6 space-y-5 text-center bg-[#0F172A] p-6 rounded-3xl border-2 border-appAmber/50">
+            <div class="inline-block px-3 py-1 rounded-full bg-appAmber/20 text-appAmber text-xs font-black" data-i18n="vaultSimBadge">
+              🔐 المرحلة 1: الخزنة الكبرى (5 أرقام سرية)
+            </div>
+            <!-- 5 Vault Digits Row -->
+            <div id="simVaultDigitsRow" class="flex items-center justify-center gap-2.5" dir="ltr">
+              <!-- Populated by JS -->
+            </div>
+            <!-- Hint Box -->
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-indigo-950 to-purple-950 border border-appAmber/60">
+              <div class="text-xs text-indigo-300 font-bold mb-1" data-i18n="vaultHintHeader">🔍 تلميح الخزنة للرقم الحالي:</div>
+              <div id="simVaultHint" class="text-base sm:text-lg font-black text-white">...</div>
+            </div>
+            <div id="simVaultFeedback" class="text-sm font-black text-appGold min-h-[24px]"></div>
+          </div>
+
+          <!-- 1-9 Keypad -->
+          <div class="lg:col-span-6 space-y-3">
+            <div id="simVaultKeypad" class="grid grid-cols-3 gap-3" dir="ltr">
+              <!-- 1 to 9 buttons populated by JS -->
+            </div>
+            <button onclick="initVaultSimulator()" class="w-full py-3 rounded-2xl bg-appAmber text-black font-black text-sm hover:brightness-110 transition-all">
+              <i class="fa-solid fa-key"></i> <span data-i18n="vaultNewCodeBtn">توليد شيفرة خزنة جديدة</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 3: Interactive Clash of Souls Simulator (From box_souls.dart) -->
+        <div id="labPanel-souls" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-5 space-y-4 bg-[#161326] p-5 rounded-3xl border-2 border-appCrimson/50">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-sm text-white" data-i18n="soulsYourSoul">❤️ شريط روحك:</span>
+              <span id="simSoulValue" class="font-black text-lg text-appEmerald">100%</span>
+            </div>
+            <div class="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+              <div id="simSoulBar" class="h-full bg-appEmerald transition-all duration-300" style="width: 100%;"></div>
+            </div>
+            <div id="simSoulLog" class="p-4 rounded-2xl bg-black/40 border border-white/10 text-center min-h-[90px] flex flex-col items-center justify-center">
+              <span class="text-2xl mb-1">📦</span>
+              <span class="text-xs font-bold text-white/80" data-i18n="soulsClickPrompt">اضغط على أي صندوق لاكتشاف السلاح أو العلاج بداخله!</span>
+            </div>
+            <button onclick="initSoulsSimulator()" class="w-full py-3 rounded-xl bg-appCrimson text-white font-black text-xs sm:text-sm hover:brightness-110 transition-all">
+              <i class="fa-solid fa-rotate"></i> <span data-i18n="soulsResetGrid">إعادة خلط الصناديق</span>
+            </button>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div id="simSoulsGrid" class="grid grid-cols-4 gap-2.5">
+              <!-- 12 Sample Boxes populated by JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 4. CLASH OF SOULS 20-ITEM ARSENAL SHOWCASE ================= -->
+    <section id="souls-arsenal" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10 space-y-2">
+        <span class="px-3.5 py-1 rounded-full bg-appCrimson/20 text-appCrimson border border-appCrimson/40 text-xs font-black">
+          ⚔️ KSOULBOXITEMSCATALOG • 20 ITEMS
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-white" data-i18n="arsenalTitle">
+          دليل عناصر ومحتويات صناديق صراع الأرواح
+        </h2>
+        <p class="text-white/60 text-sm" data-i18n="arsenalSubtitle">
+          جميع العناصر الـ 20 الفعلية الموجودة داخل الصناديق وتأثيرها المباشر على شريط الروح (100%).
+        </p>
+      </div>
+
+      <!-- 20 Items Grid (Exact match from box_souls.dart kSoulBoxItemsCatalog) -->
+      <div id="soulsCatalogGrid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3.5">
+        <!-- Populated by JS from kSoulBoxItemsCatalog -->
+      </div>
+    </section>
+
+    <!-- ================= 5. LOYALTY STREAK, LEVEL BOXES & QUESTS (dailyStreakBoxes.dart & quests_page.dart) ================= -->
+    <section id="rewards-streak" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Daily Streak 10 Days + Golden Box -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-appGold/60 space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-appAccentGold to-orange-600 flex items-center justify-center text-black text-2xl shadow-lg">
+            <i class="fa-solid fa-fire-flame-curved"></i>
+          </div>
+          <h3 class="text-xl font-black text-appGold" data-i18n="loyalty1Title">السلسلة اليومية (10 أيام) + الصندوق الذهبي</h3>
+          <p class="text-sm text-white/75 leading-relaxed" data-i18n="loyalty1Desc">
+            افتح صندوقك اليومي مجاناً وضاعف جائزتك بمشاهدة إعلان! في اليوم العاشر ينتظرك الصندوق الذهبي الأسطوري، مع ميزة "درع حماية السلسلة" بالنقاط أو الشرارة إذا فاتك يوم!
+          </p>
+        </div>
+
+        <!-- Level Boxes & VIP Referral -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-appPurple/60 space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-400 to-purple-800 flex items-center justify-center text-white text-2xl shadow-lg">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h3 class="text-xl font-black text-purple-300" data-i18n="loyalty2Title">صناديق المستويات وكود دعوة الأصدقاء</h3>
+          <p class="text-sm text-white/75 leading-relaxed" data-i18n="loyalty2Desc">
+            كلما ارتفع مستواك (LV) تفتح صناديق مكافآت ملكية! أنشئ كود الدعوة الخاص بك وادعُ حتى 10 أصدقاء لتحصلوا معاً على صناديق الصداقة الترحيبية والجوائز المتدرجة.
+          </p>
+        </div>
+
+        <!-- Evolving Quests & Collectibles -->
+        <div class="game-card-3d rounded-3xl p-6 border-2 border-appEmerald/60 space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-700 flex items-center justify-center text-black text-2xl shadow-lg">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <h3 class="text-xl font-black text-appEmerald" data-i18n="loyalty3Title">نظام المهام المتدرجة والمقتنيات النادرة</h3>
+          <p class="text-sm text-white/75 leading-relaxed" data-i18n="loyalty3Desc">
+            أنجز مهام اللعب والاقتصاد والتقدم عبر مستويات متصاعدة (Tier 1, Tier 2...) لربح النجوم والعملات والشرارات ونقاط الخبرة XP، وخصص حسابك بأفخم المقتنيات!
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 6. THE GRAND DOWNLOAD BOX AT THE BOTTOM (مربع التحميل في الأسفل) ================= -->
+    <section id="download-box" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      <div class="relative rounded-[40px] bg-gradient-to-br from-[#231D38] via-[#131528] to-[#0A0C18] border-[3px] border-appGold p-6 sm:p-12 shadow-[0_0_60px_rgba(240,185,11,0.25)] overflow-hidden">
+        
+        <!-- Decorative Corner Glows -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-appGold/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-appEmerald/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- App Icon & Core Specs -->
+          <div class="lg:col-span-8 space-y-6">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-start">
+              <!-- 3D App Icon -->
+              <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-[30px] bg-gradient-to-br from-appAccentGold via-appGold to-amber-700 p-1 shadow-2xl shrink-0 animate-float">
+                <div class="w-full h-full rounded-[26px] bg-[#101223] flex flex-col items-center justify-center relative overflow-hidden">
+                  <div class="text-5xl mb-1">📦⚔️</div>
+                  <span class="text-[9px] font-black tracking-widest text-appGold">CLASH OF BOXES</span>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-appEmerald/20 border border-appEmerald/50 text-appEmerald text-xs font-black">
+                  <i class="fa-solid fa-shield-check"></i>
+                  <span data-i18n="dlVerified">مفحوص وآمن بواسطة Google Play Protect</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black text-white">
+                  Clash of Boxes • <span class="text-appGold" data-i18n="dlAppNameAr">صراع الصناديق</span>
+                </h2>
+                <p class="text-sm sm:text-base text-white/75 font-medium leading-relaxed" data-i18n="dlBoxDesc">
+                  حمّل النسخة الرسمية الكاملة الآن مجاناً على هاتفك الأندرويد! تضم جميع البطولات الـ 8 الحية، نظام المستويات، السلسلة اليومية، ودعم كامل لـ 12 لغة.
+                </p>
+              </div>
+            </div>
+
+            <!-- Detailed Technical Specs Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10 text-center">
+                <div class="text-appGold font-black text-lg">4.9 ★</div>
+                <div class="text-[11px] text-white/60 font-bold" data-i18n="dlSpecRating">تقييم اللاعبين</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10 text-center">
+                <div class="text-appCyan font-black text-lg">12 🌐</div>
+                <div class="text-[11px] text-white/60 font-bold" data-i18n="dlSpecLangs">لغات مدعومة</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10 text-center">
+                <div class="text-appEmerald font-black text-lg" data-i18n="dlSpecFreeVal">مجاني</div>
+                <div class="text-[11px] text-white/60 font-bold" data-i18n="dlSpecPrice">التحميل واللعب</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10 text-center">
+                <div class="text-purple-400 font-black text-lg">Android 6.0+</div>
+                <div class="text-[11px] text-white/60 font-bold" data-i18n="dlSpecOs">النظام المتطلب</div>
+              </div>
+            </div>
+
+            <!-- Included Features Checklist -->
+            <div class="flex flex-wrap gap-2.5 pt-1">
+              <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white/85 flex items-center gap-1.5">
+                <i class="fa-solid fa-check text-appEmerald"></i> <span data-i18n="dlFeat1">بطولات أونلاين فورية</span>
+              </span>
+              <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white/85 flex items-center gap-1.5">
+                <i class="fa-solid fa-check text-appEmerald"></i> <span data-i18n="dlFeat2">صراع الأرواح وميزان الصندوق</span>
+              </span>
+              <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white/85 flex items-center gap-1.5">
+                <i class="fa-solid fa-check text-appEmerald"></i> <span data-i18n="dlFeat3">مكافآت يومية ومقتنيات</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Google Play Download Action Column -->
+          <div class="lg:col-span-4 flex flex-col items-center justify-center bg-[#090A14]/90 p-6 rounded-3xl border-2 border-appGold/50 space-y-4 text-center shadow-xl">
+            <div class="text-xs font-black text-appGold uppercase tracking-wider" data-i18n="dlReadyTag">
+              رابط التحميل المباشر من المتجر
+            </div>
+
+            <!-- Primary Google Play Button -->
+            <a id="googlePlayDownloadLink" href="https://play.google.com/store/apps/search?q=Clash%20of%20Boxes&c=apps" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-2xl btn-3d-gold text-black font-black flex items-center justify-center gap-3 text-lg shadow-lg">
+              <i class="fa-brands fa-google-play text-3xl"></i>
+              <div class="text-start leading-tight">
+                <div class="text-[10px] font-extrabold uppercase opacity-80">GET IT ON</div>
+                <div class="text-xl font-black">Google Play</div>
+              </div>
+            </a>
+
+            <!-- Copy Website / Share Button -->
+            <button onclick="copyWebsiteLink()" class="w-full py-3 px-4 rounded-xl bg-[#1B1E36] hover:bg-[#25294A] border border-white/15 text-xs font-black text-white/90 flex items-center justify-center gap-2 transition-colors">
+              <i class="fa-solid fa-share-nodes text-appCyan"></i>
+              <span id="copyLinkBtnText" data-i18n="dlShareBtn">نسخ رابط الموقع: clashofboxes.com</span>
+            </button>
+
+            <div class="text-[11px] text-white/50 font-semibold">
+              clashofboxes.com • Official Release
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER & DNS GUIDE TRIGGER ================= -->
+  <footer class="border-t border-white/10 bg-[#06070E] py-10 px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-start">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-appGold text-black flex items-center justify-center font-black">
+          <i class="fa-solid fa-boxes-stacked"></i>
+        </div>
+        <div>
+          <div class="font-black text-sm text-white">CLASH OF BOXES • clashofboxes.com</div>
+          <div class="text-xs text-white/50" data-i18n="footerRights">جميع الحقوق محفوظة © صراع الصناديق</div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <button onclick="openDnsGuideModal()" class="px-4 py-2 rounded-xl bg-appSurface hover:bg-appCard border border-appCyan/40 text-appCyan text-xs font-black flex items-center gap-2 transition-all">
+          <i class="fa-brands fa-github"></i>
+          <span>دليل ربط GitHub بدومين Hostinger (لصاحب الموقع)</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= GITHUB + HOSTINGER DNS GUIDE MODAL ================= -->
+  <div id="dnsGuideModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-[#141629] border-2 border-appCyan rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-5 text-right" dir="rtl">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+          <i class="fa-brands fa-github text-3xl text-appCyan"></i>
+          <h3 class="text-xl font-black text-white">طريقة رفع الصفحة على GitHub وربطها بدومين Hostinger مجاناً</h3>
+        </div>
+        <button onclick="closeDnsGuideModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-red-500/30 text-white flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-sm text-white/85 leading-relaxed">
+        <div class="p-4 rounded-2xl bg-appEmerald/10 border border-appEmerald/40 text-appEmerald font-bold">
+          ✅ بهذه الطريقة الرسمية، عندما يدخل أي زائر إلى <strong>clashofboxes.com</strong> ستفتح له هذه الصفحة كاملة وبشهادة أمان <strong>HTTPS</strong> مجاناً، بدون شراء استضافة على هوستنجر، و<strong>لن يتغير الرابط في شريط المتصفح أبداً</strong>!
+        </div>
+
+        <h4 class="font-black text-appGold text-base">الخطوة 1: تعديل رابط متجر جوجل بلاي (إن رغبت)</h4>
+        <p>داخل ملف <code>index.html</code> ابحث عن السطر الذي يحتوي على <code>googlePlayDownloadLink</code> وضع رابط تطبيقك المباشر على Google Play.</p>
+
+        <h4 class="font-black text-appGold text-base">الخطوة 2: رفع الملف على GitHub</h4>
+        <ol class="list-decimal list-inside space-y-1.5">
+          <li>أنشئ حساباً مجانياً على <strong>github.com</strong> واضغط على <strong>New Repository</strong>.</li>
+          <li>سمِّ المستودع مثلاً <code>clashofboxes-web</code> واجعله <strong>Public</strong> ثم اضغط <strong>Create repository</strong>.</li>
+          <li>اضغط <strong>uploading an existing file</strong>، واحفظ هذا الكود في جهازك باسم <code>index.html</code> وارفعه، ثم اضغط <strong>Commit changes</strong>.</li>
+        </ol>
+
+        <h4 class="font-black text-appGold text-base">الخطوة 3: إعداد DNS داخل لوحة تحكم Hostinger</h4>
+        <p>ادخل إلى حسابك في <strong>Hostinger</strong> &larr; قسم <strong>Domains (النطاقات)</strong> &larr; اختر <strong>clashofboxes.com</strong> &larr; اضغط على <strong>DNS / Nameservers</strong>:</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border border-white/15 rounded-xl overflow-hidden" dir="ltr">
+            <thead class="bg-white/10 text-appCyan font-black">
+              <tr>
+                <th class="p-2.5">Type</th>
+                <th class="p-2.5">Name</th>
+                <th class="p-2.5">Points to / Target</th>
+                <th class="p-2.5">TTL</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10 font-mono">
+              <tr><td class="p-2">A</td><td class="p-2">@</td><td class="p-2">185.199.108.153</td><td class="p-2">3600</td></tr>
+              <tr><td class="p-2">A</td><td class="p-2">@</td><td class="p-2">185.199.109.153</td><td class="p-2">3600</td></tr>
+              <tr><td class="p-2">A</td><td class="p-2">@</td><td class="p-2">185.199.110.153</td><td class="p-2">3600</td></tr>
+              <tr><td class="p-2">A</td><td class="p-2">@</td><td class="p-2">185.199.111.153</td><td class="p-2">3600</td></tr>
+              <tr><td class="p-2">CNAME</td><td class="p-2">www</td><td class="p-2">YOUR_GITHUB_USERNAME.github.io</td><td class="p-2">3600</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-white/60">* ملاحظة: احذف أي سجل <code>A</code> قديم يشير إلى IP افتراضي لصفحة انتظار هوستنجر (Parking Page).</p>
+
+        <h4 class="font-black text-appGold text-base">الخطوة 4: تفعيل الدومين في GitHub Pages</h4>
+        <ol class="list-decimal list-inside space-y-1.5">
+          <li>في مستودعك على GitHub اذهب إلى <strong>Settings</strong> &larr; <strong>Pages</strong>.</li>
+          <li>تحت قسم <strong>Build and deployment</strong> اختر الفرع <code>main</code> واضغط <strong>Save</strong>.</li>
+          <li>في خانة <strong>Custom domain</strong> اكتب: <code>clashofboxes.com</code> واضغط <strong>Save</strong>.</li>
+          <li>بعد دقائق، فعّل خيار <strong>Enforce HTTPS</strong> ليصبح الموقع محمياً بالقفل الأخضر.</li>
+        </ol>
+      </div>
+
+      <div class="pt-3 text-center">
+        <button onclick="closeDnsGuideModal()" class="px-8 py-3 rounded-xl btn-3d-gold text-black font-black text-sm">
+          فهمت، إغلاق الدليل
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT: 12 LANGUAGES + INTERACTIVE SIMULATORS ================= -->
+  <script>
+    // =========================================================================
+    // 1. METADATA FOR ALL 12 LANGUAGES (Matching main.dart _languageMeta)
+    // =========================================================================
+    const LANGUAGE_META = [
+      { code: 'ar', name: 'العربية', sub: 'Arabic', flag: '🇯🇴', dir: 'rtl' },
+      { code: 'en', name: 'English', sub: 'English', flag: '🇺🇸', dir: 'ltr' },
+      { code: 'fr', name: 'Français', sub: 'French', flag: '🇫🇷', dir: 'ltr' },
+      { code: 'ru', name: 'Русский', sub: 'Russian', flag: '🇷🇺', dir: 'ltr' },
+      { code: 'pt', name: 'Português', sub: 'Portuguese', flag: '🇵🇹', dir: 'ltr' },
+      { code: 'es', name: 'Español', sub: 'Spanish', flag: '🇪🇸', dir: 'ltr' },
+      { code: 'de', name: 'Deutsch', sub: 'German', flag: '🇩🇪', dir: 'ltr' },
+      { code: 'it', name: 'Italiano', sub: 'Italian', flag: '🇮🇹', dir: 'ltr' },
+      { code: 'hi', name: 'हिन्दी', sub: 'Hindi', flag: '🇮🇳', dir: 'ltr' },
+      { code: 'ko', name: '한국어', sub: 'Korean', flag: '🇰🇷', dir: 'ltr' },
+      { code: 'ja', name: '日本語', sub: 'Japanese', flag: '🇯🇵', dir: 'ltr' },
+      { code: 'zh', name: '中文', sub: 'Chinese', flag: '🇨🇳', dir: 'ltr' }
+    ];
+
+    // =========================================================================
+    // 2. COMPLETE TRANSLATIONS FOR ALL 12 LANGUAGES
+    // =========================================================================
+    const TRANSLATIONS = {
+      ar: {
+        navSubtitle: "حلبة صراع الصناديق العالمية",
+        navModes: "أطوار اللعب (8)",
+        navInteractive: "تجربة حية",
+        navArsenal: "ترسانة الأرواح (20)",
+        navRewards: "المكافآت والسلسلة",
+        navDownload: "التحميل",
+        navDownloadBtn: "حمل اللعبة",
+        heroBadge: "🔥 الموسم الجديد متاح الآن • 8 ألعاب تنافسية في تطبيق واحد!",
+        heroTitle1: "ادخل حلبة",
+        heroTitle2: "صراع الصناديق",
+        heroDesc: "اللعبة التنافسية الجماعية الأولى التي تجمع بين الذكاء، السرعة، التخطيط، والحظ! واجه لاعبين حقيقيين في بطولات ميزان الصندوق، صراع الأرواح، كسر شيفرة الخزنة، وصناديق الإقصاء، واجمع النجوم والعملات والشرارات!",
+        currStars: "النجوم",
+        currCoins: "العملات",
+        currSpark: "الشرارة",
+        heroPlaySub: "متاح مجاناً على",
+        heroPlayMain: "Google Play • حمل الآن",
+        heroTryInteractive: "جرب محاكي الألعاب الآن",
+        trustSafe: "محمي وموثق 100%",
+        trustLangs: "يدعم 12 لغة عالمية",
+        trustMulti: "بطولات حية (4 - 8 لاعبين)",
+        mockPlayerName: "بطل_الصناديق",
+        mockLiveBanner: "🔥 صراع الأرواح وميزان الصندوق متاحان!",
+        mockQuestsBtn: "المهام",
+        modeSoulsTitle: "صراع الأرواح • 24 صندوقاً قاتلاً",
+        catArena: "ألعاب التحدي",
+        catRewards: "المكافآت والخزينة",
+        modeScaleShort: "ميزان الصندوق",
+        modeVaultShort: "صندوق الخزنة",
+        modeWheelShort: "عجلة الحظ 3D",
+        modesSectionTag: "11 نظاماً تفاعلياً داخل التطبيق",
+        modesSectionTitle: "استكشف أطوار اللعب في صراع الصناديق",
+        modesSectionDesc: "كل طور صُمم بقوانين فيزيائية وتكتيكية فريدة، مع بطولات جماعية (8 لاعبين) ومستويين للصعوبة (سهل وصعب).",
+        card1Title: "صراع الصناديق (Clash of Boxes)",
+        card1Desc: "البطولة الرئيسية! تنافس في غرف تضم 8 لاعبين، افتح الصناديق التكتيكية واجمع أعلى النقاط للتأهل للجولة النهائية وحصد الجائزة الكبرى.",
+        card1Meta: "🥇 جوائز المركز الأول والثاني",
+        card2Title: "صراع الأرواح (Box Souls)",
+        card2Desc: "4 لاعبين يبدأون بشريط روح 100%! افتح من بين 20 أو 24 صندوقاً تحتوي على أسلحة هجومية (سكين، قنبلة، مقصلة)، منوّم مغناطيسي، أو دروع وإبر حياة!",
+        card2Meta: "🩸 20 عنصراً قتالياً ودفاعياً",
+        card3Title: "ميزان الصندوق (Box Scale)",
+        card3Desc: "ميزان فيزيائي حي ذو كفتين! لديك 20 ثانية فقط و6 صناديق بأوزان مختلفة؛ اختر التركيبة الصحيحة التي تعادل الوزن الذهبي المستهدف بالضبط!",
+        card3Meta: "⏳ سرعة الحساب والتوازن",
+        card4Title: "صندوق الخزنة (Box Vault)",
+        card4Desc: "افتح الخزنة الكبرى المكونة من 5 أرقام سرية! اقرأ تلميح الخزنة الذكي في كل جولة وخمّن الرقم السري (1-9) خلال 10 ثوانٍ قبل خصومك.",
+        card4Meta: "🔍 تلميحات ذكية وجولات حاسمة",
+        card5Title: "صناديق الإقصاء (Elimination)",
+        card5Desc: "حلبة البقاء للأذكى! كل جولة تقصي أصحاب الاختيارات الخاطئة حتى يبقى البطل الأخير الصامد في الحلبة.",
+        card5Meta: "💀 البقاء للأقوى",
+        card6Title: "صندوق الحظ (Lucky Box)",
+        card6Desc: "اختبر حدسك في فتح الصناديق الغامضة ذات المضاعفات العالية وتجنب الفخاخ لمضاعفة رصيدك من النقاط والنجوم.",
+        card6Meta: "✨ مضاعفات ومفاجآت",
+        card7Title: "ابحث عن الصندوق (Find Box)",
+        card7Desc: "قوة الملاحظة والذاكرة البصرية السريعة هي سلاحك لتتبع الصندوق الفائز وسط الخدع البصرية السريعة.",
+        card7Meta: "👁️ دقة الملاحظة والتركيز",
+        card8Title: "دولاب الحظ وأزرار القرارات",
+        card8Desc: "دولاب حظ ثلاثي الأبعاد بإضاءة كازينو وتكتكة فيزيائية حقيقية + صناديق أزرار الحظ الغامضة مع 3 محاولات يومية متجددة!",
+        card8Meta: "🎯 3 محاولات يومية مجانية",
+        labBadge: "🎮 محاكي تفاعلي مباشر من كود اللعبة",
+        labTitle: "جرب فيزياء وتكتيك اللعبة الآن قبل التحميل!",
+        labTabScale: "ميزان الصندوق",
+        labTabVault: "صندوق الخزنة",
+        labTabSouls: "صراع الأرواح",
+        scaleTargetLabel: "الوزن المستهدف:",
+        scaleLiveHint: "اختر الصناديق لموازنة الكفتين!",
+        scaleCurrentLabel: "كفتك:",
+        simNewRound: "توليد جولة أوزان جديدة",
+        scaleBoxesPickTitle: "اضغط على الصناديق الـ 6 لوضعها على الكفة:",
+        scaleResetBtn: "جولة جديدة بأوزان عشوائية",
+        scaleBalancedMsg: "✅ توازن مثالي! مجموعك يساوي الوزن المستهدف!",
+        vaultSimBadge: "🔐 المرحلة 1: الخزنة الكبرى (5 أرقام سرية)",
+        vaultHintHeader: "🔍 تلميح الخزنة للرقم الحالي:",
+        vaultNewCodeBtn: "توليد شيفرة خزنة جديدة",
+        soulsYourSoul: "❤️ شريط روحك:",
+        soulsClickPrompt: "اضغط على أي صندوق لاكتشاف السلاح أو العلاج بداخله!",
+        soulsResetGrid: "إعادة خلط الصناديق",
+        arsenalTitle: "دليل عناصر ومحتويات صناديق صراع الأرواح",
+        arsenalSubtitle: "جميع العناصر الـ 20 الفعلية الموجودة داخل الصناديق وتأثيرها المباشر على شريط الروح (100%).",
+        loyalty1Title: "السلسلة اليومية (10 أيام) + الصندوق الذهبي",
+        loyalty1Desc: "افتح صندوقك اليومي مجاناً وضاعف جائزتك بمشاهدة إعلان! في اليوم العاشر ينتظرك الصندوق الذهبي الأسطوري، مع ميزة درع حماية السلسلة.",
+        loyalty2Title: "صناديق المستويات وكود دعوة الأصدقاء",
+        loyalty2Desc: "كلما ارتفع مستواك (LV) تفتح صناديق مكافآت ملكية! أنشئ كود الدعوة الخاص بك وادعُ حتى 10 أصدقاء لتحصلوا معاً على صناديق الصداقة.",
+        loyalty3Title: "نظام المهام المتدرجة والمقتنيات النادرة",
+        loyalty3Desc: "أنجز مهام اللعب والاقتصاد والتقدم عبر مستويات متصاعدة لربح النجوم والعملات والشرارات ونقاط الخبرة XP، وخصص حسابك بأفخم المقتنيات!",
+        dlVerified: "مفحوص وآمن بواسطة Google Play Protect",
+        dlAppNameAr: "صراع الصناديق",
+        dlBoxDesc: "حمّل النسخة الرسمية الكاملة الآن مجاناً على هاتفك الأندرويد! تضم جميع البطولات الـ 8 الحية، نظام المستويات، السلسلة اليومية، ودعم كامل لـ 12 لغة.",
+        dlSpecRating: "تقييم اللاعبين",
+        dlSpecLangs: "لغات مدعومة",
+        dlSpecFreeVal: "مجاني",
+        dlSpecPrice: "التحميل واللعب",
+        dlSpecOs: "النظام المتطلب",
+        dlFeat1: "بطولات أونلاين فورية",
+        dlFeat2: "صراع الأرواح وميزان الصندوق",
+        dlFeat3: "مكافآت يومية ومقتنيات",
+        dlReadyTag: "رابط التحميل المباشر من المتجر",
+        dlShareBtn: "نسخ رابط الموقع: clashofboxes.com",
+        footerRights: "جميع الحقوق محفوظة © صراع الصناديق"
+      },
+      en: {
+        navSubtitle: "Global Multiplayer Box Arena",
+        navModes: "Game Modes (8)",
+        navInteractive: "Live Demo",
+        navArsenal: "Souls Arsenal (20)",
+        navRewards: "Rewards & Streak",
+        navDownload: "Download",
+        navDownloadBtn: "Download App",
+        heroBadge: "🔥 New Season Live • 8 Competitive Arena Games in One App!",
+        heroTitle1: "Enter the Arena of",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "The ultimate multiplayer competitive arena combining strategy, speed, physics, and luck! Battle real players in Box Scale, Clash of Souls, Secret Vault, and Box Elimination tournaments to collect Stars, Coins, and Sparks!",
+        currStars: "Stars",
+        currCoins: "Coins",
+        currSpark: "Spark",
+        heroPlaySub: "FREE DOWNLOAD ON",
+        heroPlayMain: "Google Play • Play Now",
+        heroTryInteractive: "Try Interactive Mini-Games",
+        trustSafe: "100% Verified & Secure",
+        trustLangs: "12 Global Languages",
+        trustMulti: "Live Tournaments (4-8 Players)",
+        mockPlayerName: "Box_Champion",
+        mockLiveBanner: "🔥 Clash of Souls & Box Scale are LIVE!",
+        mockQuestsBtn: "Quests",
+        modeSoulsTitle: "Clash of Souls • 24 Deadly Boxes",
+        catArena: "Arena Games",
+        catRewards: "Rewards & Vault",
+        modeScaleShort: "Box Scale",
+        modeVaultShort: "Box Vault",
+        modeWheelShort: "3D Wheel",
+        modesSectionTag: "11 INTERACTIVE SYSTEMS IN ONE APP",
+        modesSectionTitle: "Explore All Game Modes in Clash of Boxes",
+        modesSectionDesc: "Every arena features unique physics and tactical rules, 8-player tournaments, and Easy & Hard difficulty modes.",
+        card1Title: "Clash of Boxes (Main Arena)",
+        card1Desc: "The flagship tournament! Compete in 8-player lobbies, open tactical boxes, and score the highest points to win 1st and 2nd place prizes.",
+        card1Meta: "🥇 1st & 2nd Place Tournament Prizes",
+        card2Title: "Clash of Souls (Box Souls)",
+        card2Desc: "4 players start with 100% Soul HP! Open 20 or 24 boxes containing weapons (Knife, Bomb, Guillotine), Hypnotizers, Shields, and Life Syringes!",
+        card2Meta: "🩸 20 Attack & Defense Items",
+        card3Title: "Box Scale (Balance Arena)",
+        card3Desc: "Live physics balance scale! You have 20 seconds and 6 weight boxes to match the exact golden target weight in KG.",
+        card3Meta: "⏳ Fast Math & Physics Balance",
+        card4Title: "Box Vault (Code Cracker)",
+        card4Desc: "Crack the 5-digit Grand Vault! Read the smart range hint each round and lock in the secret digit (1-9) within 10 seconds.",
+        card4Meta: "🔍 Smart Hints & Tie-Breakers",
+        card5Title: "Box Elimination",
+        card5Desc: "High-stakes survival arena! Every round eliminates wrong pickers until only the ultimate champion remains.",
+        card5Meta: "💀 Last Player Standing",
+        card6Title: "Lucky Box",
+        card6Desc: "Test your intuition opening high-multiplier mystery chests while dodging traps to multiply your coins and stars.",
+        card6Meta: "✨ High Multipliers & Jackpots",
+        card7Title: "Find the Box",
+        card7Desc: "Sharp observation and visual memory are your weapons to track the winning chest amidst rapid shuffles.",
+        card7Meta: "👁️ Visual Memory & Speed",
+        card8Title: "3D Fortune Wheel & Decisions",
+        card8Desc: "3D Casino LED Fortune Wheel with realistic haptic ticks + Mystery Luck Buttons with 3 renewable daily attempts!",
+        card8Meta: "🎯 3 Free Daily Attempts",
+        labBadge: "🎮 LIVE PLAYABLE DEMO FROM GAME CODE",
+        labTitle: "Test the Game Physics & Tactics Right in Your Browser!",
+        labTabScale: "Box Scale",
+        labTabVault: "Box Vault",
+        labTabSouls: "Clash of Souls",
+        scaleTargetLabel: "Target Weight:",
+        scaleLiveHint: "Tap boxes to balance the scale!",
+        scaleCurrentLabel: "Your Pan:",
+        simNewRound: "Generate New Weights",
+        scaleBoxesPickTitle: "Tap the 6 weight boxes to place them on your pan:",
+        scaleResetBtn: "New Round with Random Weights",
+        scaleBalancedMsg: "✅ PERFECT BALANCE! Your pan matches the target!",
+        vaultSimBadge: "🔐 Stage 1: Grand Vault (5 Secret Digits)",
+        vaultHintHeader: "🔍 Vault Hint for Current Digit:",
+        vaultNewCodeBtn: "Generate New Vault Code",
+        soulsYourSoul: "❤️ Your Soul HP:",
+        soulsClickPrompt: "Tap any box to reveal the weapon or heal inside!",
+        soulsResetGrid: "Reshuffle Soul Boxes",
+        arsenalTitle: "Clash of Souls: Complete 20-Item Catalog",
+        arsenalSubtitle: "All 20 authentic items inside the Soul Boxes and their exact impact on the 100% Soul HP bar.",
+        loyalty1Title: "10-Day Daily Streak & Golden Box",
+        loyalty1Desc: "Claim your free daily box and double rewards via ads! Reach Day 10 for the Golden Chest, with Streak Protection Shield using Coins or Spark.",
+        loyalty2Title: "Level-Up Boxes & VIP Friend Referrals",
+        loyalty2Desc: "Unlock royal reward chests every time you level up! Generate your VIP code and invite up to 10 friends for milestone chests.",
+        loyalty3Title: "Tiered Quests & Rare Collectibles",
+        loyalty3Desc: "Complete multi-tier quests across Games, Economy, and Progression to earn Stars, Coins, Sparks, and XP!",
+        dlVerified: "Verified & Protected by Google Play Protect",
+        dlAppNameAr: "Official Android App",
+        dlBoxDesc: "Download the full official game for free on Android! Includes all 8 live multiplayer arenas, level chests, daily streaks, and 12 languages.",
+        dlSpecRating: "User Rating",
+        dlSpecLangs: "Languages",
+        dlSpecFreeVal: "FREE",
+        dlSpecPrice: "Download & Play",
+        dlSpecOs: "Required OS",
+        dlFeat1: "Real-Time Online Tournaments",
+        dlFeat2: "Clash of Souls & Box Scale",
+        dlFeat3: "Daily Rewards & Collectibles",
+        dlReadyTag: "DIRECT GOOGLE PLAY STORE DOWNLOAD",
+        dlShareBtn: "Copy Website Link: clashofboxes.com",
+        footerRights: "All Rights Reserved © Clash of Boxes"
+      },
+      fr: {
+        navSubtitle: "Arène Multijoueur Mondiale",
+        navModes: "Modes de Jeu (8)",
+        navInteractive: "Démo Live",
+        navArsenal: "Arsenal des Âmes (20)",
+        navRewards: "Récompenses",
+        navDownload: "Télécharger",
+        navDownloadBtn: "Télécharger",
+        heroBadge: "🔥 Nouvelle Saison • 8 Jeux Compétitifs dans une Application !",
+        heroTitle1: "Entrez dans l'Arène",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "Le jeu multijoueur compétitif ultime alliant stratégie, rapidité, physique et chance ! Affrontez de vrais joueurs dans Balance des Boîtes, Choc des Âmes, Coffre Secret et Élimination !",
+        currStars: "Étoiles",
+        currCoins: "Pièces",
+        currSpark: "Étincelle",
+        heroPlaySub: "TÉLÉCHARGER GRATUITEMENT SUR",
+        heroPlayMain: "Google Play • Jouer",
+        heroTryInteractive: "Essayer le Simulateur",
+        trustSafe: "100% Vérifié et Sécurisé",
+        trustLangs: "12 Langues Mondiales",
+        trustMulti: "Tournois Live (4-8 Joueurs)",
+        mockPlayerName: "Champion_Box",
+        mockLiveBanner: "🔥 Choc des Âmes & Balance en direct !",
+        mockQuestsBtn: "Quêtes",
+        modeSoulsTitle: "Choc des Âmes • 24 Boîtes Mortelles",
+        catArena: "Jeux d'Arène",
+        catRewards: "Coffre & Bonus",
+        modeScaleShort: "Balance",
+        modeVaultShort: "Coffre-Fort",
+        modeWheelShort: "Roue 3D",
+        modesSectionTag: "11 SYSTÈMES INTERACTIFS",
+        modesSectionTitle: "Découvrez les Modes de Clash of Boxes",
+        modesSectionDesc: "Chaque mode propose des règles physiques et tactiques uniques avec des tournois à 8 joueurs (Facile et Difficile).",
+        card1Title: "Clash of Boxes (Arène Principale)",
+        card1Desc: "Le tournoi phare ! Affrontez 8 joueurs, ouvrez les boîtes tactiques et remportez les prix de 1ère et 2ème place.",
+        card1Meta: "🥇 Prix de Tournoi 1er & 2ème",
+        card2Title: "Choc des Âmes (Box Souls)",
+        card2Desc: "4 joueurs avec 100% d'Âme ! Ouvrez 20 ou 24 boîtes contenant armes (Couteau, Bombe, Guillotine), Hypnotiseur, Boucliers et Soins !",
+        card2Meta: "🩸 20 Objets d'Attaque et Défense",
+        card3Title: "Balance de Boîte (Box Scale)",
+        card3Desc: "Balance physique en temps réel ! Vous avez 20 secondes et 6 poids pour égaler exactement le poids cible doré en KG.",
+        card3Meta: "⏳ Calcul Rapide & Équilibre",
+        card4Title: "Coffre-Fort (Box Vault)",
+        card4Desc: "Déchiffrez les 5 chiffres secrets du coffre grâce aux indices intelligents en moins de 10 secondes par chiffre.",
+        card4Meta: "🔍 Indices & Manches Décisives",
+        card5Title: "Boîtes d'Élimination",
+        card5Desc: "Arène de survie ! Chaque manche élimine les mauvais choix jusqu'au dernier survivant.",
+        card5Meta: "💀 Survie Ultime",
+        card6Title: "Boîte Chanceuse (Lucky Box)",
+        card6Desc: "Ouvrez des coffres mystères à hauts multiplicateurs tout en évitant les pièges.",
+        card6Meta: "✨ Multiplicateurs & Jackpots",
+        card7Title: "Trouvez la Boîte (Find Box)",
+        card7Desc: "Observation et mémoire visuelle rapide pour suivre le coffre gagnant.",
+        card7Meta: "👁️ Mémoire Visuelle",
+        card8Title: "Roue de la Fortune 3D",
+        card8Desc: "Roue de casino 3D illuminée + Boutons mystères avec 3 essais gratuits par jour !",
+        card8Meta: "🎯 3 Essais Gratuits / Jour",
+        labBadge: "🎮 DÉMO INTERACTIVE EN DIRECT",
+        labTitle: "Testez la Physique et la Tactique du Jeu Maintenant !",
+        labTabScale: "Balance",
+        labTabVault: "Coffre-Fort",
+        labTabSouls: "Choc des Âmes",
+        scaleTargetLabel: "Poids Cible :",
+        scaleLiveHint: "Touchez les boîtes pour équilibrer !",
+        scaleCurrentLabel: "Votre Plateau :",
+        simNewRound: "Nouvelle Manche",
+        scaleBoxesPickTitle: "Touchez les 6 boîtes pour les placer sur la balance :",
+        scaleResetBtn: "Nouvelle Manche Aléatoire",
+        scaleBalancedMsg: "✅ ÉQUILIBRE PARFAIT ! Cible atteinte !",
+        vaultSimBadge: "🔐 Étape 1 : Grand Coffre (5 Chiffres)",
+        vaultHintHeader: "🔍 Indice pour le chiffre actuel :",
+        vaultNewCodeBtn: "Nouveau Code Secret",
+        soulsYourSoul: "❤️ Votre Âme :",
+        soulsClickPrompt: "Touchez une boîte pour révéler l'arme ou le soin !",
+        soulsResetGrid: "Mélanger les Boîtes",
+        arsenalTitle: "Catalogue Complet des 20 Objets du Choc des Âmes",
+        arsenalSubtitle: "Les 20 objets authentiques et leur effet sur la barre d'âme de 100%.",
+        loyalty1Title: "Série Quotidienne (10 Jours) & Coffre d'Or",
+        loyalty1Desc: "Ouvrez votre coffre quotidien gratuit, doublez les gains par vidéo et protégez votre série avec le Bouclier !",
+        loyalty2Title: "Coffres de Niveau & Parrainage VIP",
+        loyalty2Desc: "Gagnez des coffres royaux à chaque niveau et invitez jusqu'à 10 amis avec votre code VIP.",
+        loyalty3Title: "Quêtes Évolutives & Objets de Collection",
+        loyalty3Desc: "Accomplissez des quêtes multi-niveaux pour gagner Étoiles, Pièces, Étincelles et XP !",
+        dlVerified: "Vérifié et Sécurisé par Google Play Protect",
+        dlAppNameAr: "Application Officielle",
+        dlBoxDesc: "Téléchargez gratuitement la version officielle sur Android ! 8 arènes multijoueurs, coffres de niveau et 12 langues.",
+        dlSpecRating: "Note Joueurs",
+        dlSpecLangs: "Langues",
+        dlSpecFreeVal: "GRATUIT",
+        dlSpecPrice: "Téléchargement",
+        dlSpecOs: "Système Requis",
+        dlFeat1: "Tournois Multijoueurs en Direct",
+        dlFeat2: "Choc des Âmes & Balance",
+        dlFeat3: "Bonus Quotidiens & Collections",
+        dlReadyTag: "LIEN OFFICIEL GOOGLE PLAY STORE",
+        dlShareBtn: "Copier le lien : clashofboxes.com",
+        footerRights: "Tous droits réservés © Clash of Boxes"
+      },
+      ru: {
+        navSubtitle: "Мировая Многопользовательская Арена",
+        navModes: "Режимы (8)",
+        navInteractive: "Демо-Игра",
+        navArsenal: "Арсенал Душ (20)",
+        navRewards: "Награды и Серия",
+        navDownload: "Скачать",
+        navDownloadBtn: "Скачать Игру",
+        heroBadge: "🔥 Новый Сезон • 8 Соревновательных Игр в Одном Приложении!",
+        heroTitle1: "Вступай на Арену",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "Лучшая многопользовательская соревновательная игра, сочетающая стратегию, скорость, физику и удачу! Сражайся с реальными игроками в Весах Коробки, Битве Душ, Секретном Сейфе и Турнирах на Выбывание!",
+        currStars: "Звезды",
+        currCoins: "Монеты",
+        currSpark: "Искра",
+        heroPlaySub: "БЕСПЛАТНО В",
+        heroPlayMain: "Google Play • Скачать",
+        heroTryInteractive: "Играть в Мини-Демо",
+        trustSafe: "100% Проверено и Безопасно",
+        trustLangs: "12 Мировых Языков",
+        trustMulti: "Живые Турниры (4-8 Игроков)",
+        mockPlayerName: "Чемпион_Коробок",
+        mockLiveBanner: "🔥 Битва Душ и Весы уже доступны!",
+        mockQuestsBtn: "Квесты",
+        modeSoulsTitle: "Битва Душ • 24 Опасных Сундука",
+        catArena: "Арена Игр",
+        catRewards: "Награды и Сейф",
+        modeScaleShort: "Весы Коробки",
+        modeVaultShort: "Код Сейфа",
+        modeWheelShort: "3D Колесо",
+        modesSectionTag: "11 ИНТЕРАКТИВНЫХ СИСТЕМ В ИГРЕ",
+        modesSectionTitle: "Все Игровые Режимы Clash of Boxes",
+        modesSectionDesc: "Каждый режим обладает уникальной физикой и тактикой, турнирами на 8 игроков и двумя уровнями сложности.",
+        card1Title: "Clash of Boxes (Главная Арена)",
+        card1Desc: "Главный турнир на 8 игроков! Открывай тактические сундуки, набирай максимум очков и забирай призы за 1 и 2 место.",
+        card1Meta: "🥇 Призы за 1-е и 2-е место",
+        card2Title: "Битва Душ (Box Souls)",
+        card2Desc: "4 игрока со 100% здоровья души! 20 или 24 сундука с оружием (Нож, Бомба, Гильотина), Гипнозом, Щитами и Исцелением!",
+        card2Meta: "🩸 20 Предметов Атаки и Защиты",
+        card3Title: "Весы Коробки (Box Scale)",
+        card3Desc: "Живые физические весы! У тебя 20 секунд и 6 коробок с разным весом, чтобы точно уравновесить золотую гирю в КГ.",
+        card3Meta: "⏳ Быстрый Счет и Баланс",
+        card4Title: "Сундук-Сейф (Box Vault)",
+        card4Desc: "Взломай 5-значный секретный код сейфа по подсказкам за 10 секунд на каждую цифру быстрее соперников.",
+        card4Meta: "🔍 Умные Подсказки и Тай-брейк",
+        card5Title: "Коробки на Выбывание",
+        card5Desc: "Арена выживания! Каждый раунд отсеивает проигравших, пока не останется один чемпион.",
+        card5Meta: "💀 Выживет Сильнейший",
+        card6Title: "Коробка Удачи (Lucky Box)",
+        card6Desc: "Испытай интуицию, открывая таинственные сундуки с высокими множителями и обходя ловушки.",
+        card6Meta: "✨ Множители и Джекпоты",
+        card7Title: "Найди Коробку (Find Box)",
+        card7Desc: "Зрительная память и внимание помогут отследить победный сундук среди быстрых перемещений.",
+        card7Meta: "👁️ Память и Реакция",
+        card8Title: "3D Колесо Фортуны и Кнопки",
+        card8Desc: "3D колесо казино с подсветкой и вибрацией + таинственные кнопки удачи (3 бесплатные попытки каждый день)!",
+        card8Meta: "🎯 3 Попытки Ежедневно",
+        labBadge: "🎮 ЖИВОЙ СИМУЛЯТОР ИЗ КОДА ИГРЫ",
+        labTitle: "Испытай Физику и Тактику Игры Прямо в Браузере!",
+        labTabScale: "Весы Коробки",
+        labTabVault: "Код Сейфа",
+        labTabSouls: "Битва Душ",
+        scaleTargetLabel: "Цель:",
+        scaleLiveHint: "Нажимай на коробки для баланса!",
+        scaleCurrentLabel: "Твоя чаша:",
+        simNewRound: "Новый раунд весов",
+        scaleBoxesPickTitle: "Выбери из 6 коробок, чтобы уравновесить чаши:",
+        scaleResetBtn: "Новый Раунд со Случайным Весом",
+        scaleBalancedMsg: "✅ ИДЕАЛЬНЫЙ БАЛАНС! Вес совпал!",
+        vaultSimBadge: "🔐 Этап 1: Большой Сейф (5 Цифр)",
+        vaultHintHeader: "🔍 Подсказка сейфа для текущей цифры:",
+        vaultNewCodeBtn: "Создать Новый Код Сейфа",
+        soulsYourSoul: "❤️ Твоя Душа:",
+        soulsClickPrompt: "Нажми на любой сундук, чтобы открыть оружие или лечение!",
+        soulsResetGrid: "Перемешать Сундуки",
+        arsenalTitle: "Полный Каталог 20 Предметов Битвы Душ",
+        arsenalSubtitle: "Все 20 предметов внутри сундуков и их влияние на шкалу души (100%).",
+        loyalty1Title: "Ежедневная Серия (10 Дней) и Золотой Сундук",
+        loyalty1Desc: "Открывай бесплатный сундук каждый день, удваивай награду за рекламу и защищай серию Щитом!",
+        loyalty2Title: "Сундуки Уровней и VIP-Код Друзей",
+        loyalty2Desc: "Получай королевские сундуки за каждый новый уровень (LV) и приглашай до 10 друзей по своему VIP-коду.",
+        loyalty3Title: "Многоуровневые Квесты и Коллекции",
+        loyalty3Desc: "Выполняй задания, получай Звезды, Монеты, Искры и XP, и собирай редкие аватары!",
+        dlVerified: "Проверено и Защищено Google Play Protect",
+        dlAppNameAr: "Официальная Игра",
+        dlBoxDesc: "Скачай полную официальную версию бесплатно на Android! 8 живых турнирных режимов, сундуки уровней и 12 языков.",
+        dlSpecRating: "Рейтинг Игроков",
+        dlSpecLangs: "Языки",
+        dlSpecFreeVal: "БЕСПЛАТНО",
+        dlSpecPrice: "Скачивание",
+        dlSpecOs: "Система",
+        dlFeat1: "Онлайн-Турниры в Реальном Времени",
+        dlFeat2: "Битва Душ и Физические Весы",
+        dlFeat3: "Ежедневные Бонусы и Награды",
+        dlReadyTag: "ПРЯМАЯ ССЫЛКА НА GOOGLE PLAY",
+        dlShareBtn: "Скопировать ссылку: clashofboxes.com",
+        footerRights: "Все права защищены © Clash of Boxes"
+      },
+      pt: {
+        navSubtitle: "Arena Multiplayer Global",
+        navModes: "Modos de Jogo (8)",
+        navInteractive: "Demo ao Vivo",
+        navArsenal: "Arsenal das Almas (20)",
+        navRewards: "Recompensas",
+        navDownload: "Baixar",
+        navDownloadBtn: "Baixar Jogo",
+        heroBadge: "🔥 Nova Temporada • 8 Jogos Competitivos em Um Único App!",
+        heroTitle1: "Entre na Arena do",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "O jogo multiplayer competitivo definitivo que une estratégia, velocidade, física e sorte! Enfrente jogadores reais na Balança da Caixa, Conflito das Almas, Cofre Secreto e Eliminação!",
+        currStars: "Estrelas",
+        currCoins: "Moedas",
+        currSpark: "Faísca",
+        heroPlaySub: "BAIXE GRÁTIS NO",
+        heroPlayMain: "Google Play • Jogar Agora",
+        heroTryInteractive: "Testar Simulador Ao Vivo",
+        trustSafe: "100% Verificado e Seguro",
+        trustLangs: "12 Idiomas Globais",
+        trustMulti: "Torneios ao Vivo (4-8 Jogadores)",
+        mockPlayerName: "Campeao_Box",
+        mockLiveBanner: "🔥 Conflito das Almas e Balança ao vivo!",
+        mockQuestsBtn: "Missões",
+        modeSoulsTitle: "Conflito das Almas • 24 Caixas Mortais",
+        catArena: "Jogos de Arena",
+        catRewards: "Recompensas e Cofre",
+        modeScaleShort: "Balança",
+        modeVaultShort: "Cofre Secreto",
+        modeWheelShort: "Roleta 3D",
+        modesSectionTag: "11 SISTEMAS INTERATIVOS NO APP",
+        modesSectionTitle: "Explore Todos os Modos de Clash of Boxes",
+        modesSectionDesc: "Cada modo possui física e táticas únicas, com torneios para 8 jogadores e dificuldades Fácil e Difícil.",
+        card1Title: "Clash of Boxes (Arena Principal)",
+        card1Desc: "O torneio principal! Dispute em salas de 8 jogadores, abra caixas táticas e conquiste os prêmios de 1º e 2º lugar.",
+        card1Meta: "🥇 Prêmios de 1º e 2º Lugar",
+        card2Title: "Conflito das Almas (Box Souls)",
+        card2Desc: "4 jogadores começam com 100% de Alma! Abra 20 ou 24 caixas com armas (Faca, Bomba, Guilhotina), Hipnotizador, Escudos e Cura!",
+        card2Meta: "🩸 20 Itens de Ataque e Defesa",
+        card3Title: "Balança da Caixa (Box Scale)",
+        card3Desc: "Balança física em tempo real! Você tem 20 segundos e 6 caixas de peso para igualar exatamente o peso dourado alvo em KG.",
+        card3Meta: "⏳ Cálculo Rápido e Equilíbrio",
+        card4Title: "Cofre da Caixa (Box Vault)",
+        card4Desc: "Descubra os 5 dígitos secretos do Grande Cofre usando dicas inteligentes em 10 segundos por dígito.",
+        card4Meta: "🔍 Dicas Inteligentes e Desempate",
+        card5Title: "Caixas de Eliminação",
+        card5Desc: "Arena de sobrevivência! Cada rodada elimina escolhas erradas até restar apenas o grande campeão.",
+        card5Meta: "💀 Sobrevivência Extrema",
+        card6Title: "Caixa da Sorte (Lucky Box)",
+        card6Desc: "Teste sua intuição abrindo baús misteriosos com grandes multiplicadores e desviando de armadilhas.",
+        card6Meta: "✨ Multiplicadores e Prêmios",
+        card7Title: "Encontre a Caixa (Find Box)",
+        card7Desc: "Memória visual rápida e foco são suas armas para seguir o baú vencedor.",
+        card7Meta: "👁️ Memória Visual e Foco",
+        card8Title: "Roleta da Fortuna 3D e Botões",
+        card8Desc: "Roleta 3D estilo cassino com luzes LED + Botões da Sorte com 3 tentativas diárias gratuitas!",
+        card8Meta: "🎯 3 Tentativas Grátis por Dia",
+        labBadge: "🎮 SIMULADOR INTERATIVO DO JOGO",
+        labTitle: "Teste a Física e as Táticas do Jogo Agora no Navegador!",
+        labTabScale: "Balança",
+        labTabVault: "Cofre Secreto",
+        labTabSouls: "Conflito das Almas",
+        scaleTargetLabel: "Peso Alvo:",
+        scaleLiveHint: "Toque nas caixas para equilibrar!",
+        scaleCurrentLabel: "Seu Prato:",
+        simNewRound: "Gerar Novos Pesos",
+        scaleBoxesPickTitle: "Toque nas 6 caixas de peso para colocá-las na balança:",
+        scaleResetBtn: "Nova Rodada com Pesos Aleatórios",
+        scaleBalancedMsg: "✅ EQUILÍBRIO PERFEITO! Peso exato alcançado!",
+        vaultSimBadge: "🔐 Fase 1: Grande Cofre (5 Dígitos)",
+        vaultHintHeader: "🔍 Dica do Cofre para o Dígito Atual:",
+        vaultNewCodeBtn: "Gerar Novo Código do Cofre",
+        soulsYourSoul: "❤️ Sua Alma:",
+        soulsClickPrompt: "Toque em qualquer caixa para revelar a arma ou cura!",
+        soulsResetGrid: "Embaralhar Caixas",
+        arsenalTitle: "Catálogo Completo dos 20 Itens do Conflito das Almas",
+        arsenalSubtitle: "Todos os 20 itens reais dentro das caixas e seu impacto na barra de 100% de Alma.",
+        loyalty1Title: "Sequência Diária (10 Dias) e Caixa Dourada",
+        loyalty1Desc: "Abra sua caixa diária grátis, dobre seus pontos com vídeo e proteja sua sequência com o Escudo de Proteção!",
+        loyalty2Title: "Caixas de Nível e Código VIP de Amigos",
+        loyalty2Desc: "Ganhe baús reais a cada novo nível (LV) e convide até 10 amigos com seu código VIP.",
+        loyalty3Title: "Missões Evoluídas e Colecionáveis Raros",
+        loyalty3Desc: "Complete missões em vários níveis para ganhar Estrelas, Moedas, Faíscas e XP!",
+        dlVerified: "Verificado e Protegido pelo Google Play Protect",
+        dlAppNameAr: "App Oficial Android",
+        dlBoxDesc: "Baixe a versão oficial completa gratuitamente no seu Android! Inclui as 8 arenas multiplayer ao vivo, baús de nível e 12 idiomas.",
+        dlSpecRating: "Avaliação",
+        dlSpecLangs: "Idiomas",
+        dlSpecFreeVal: "GRÁTIS",
+        dlSpecPrice: "Download e Jogo",
+        dlSpecOs: "Sistema Android",
+        dlFeat1: "Torneios Online em Tempo Real",
+        dlFeat2: "Conflito das Almas e Balança",
+        dlFeat3: "Bônus Diários e Colecionáveis",
+        dlReadyTag: "DOWNLOAD DIRETO NA GOOGLE PLAY STORE",
+        dlShareBtn: "Copiar link: clashofboxes.com",
+        footerRights: "Todos os direitos reservados © Clash of Boxes"
+      },
+      es: {
+        navSubtitle: "Arena Multijugador Global",
+        navModes: "Modos (8)",
+        navInteractive: "Demo en Vivo",
+        navArsenal: "Arsenal de Almas (20)",
+        navRewards: "Recompensas",
+        navDownload: "Descargar",
+        navDownloadBtn: "Descargar App",
+        heroBadge: "🔥 Nueva Temporada • ¡8 Juegos Competitivos en Una App!",
+        heroTitle1: "Entra en la Arena de",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "¡El juego multijugador competitivo definitivo que combina estrategia, velocidad, física y suerte! Compite en Balanza de Cajas, Choque de Almas, Bóveda Secreta y Eliminación.",
+        currStars: "Estrellas",
+        currCoins: "Monedas",
+        currSpark: "Chispa",
+        heroPlaySub: "DESCARGA GRATIS EN",
+        heroPlayMain: "Google Play • Jugar Ahora",
+        heroTryInteractive: "Probar Simulador en Vivo",
+        trustSafe: "100% Verificado y Seguro",
+        trustLangs: "12 Idiomas Globales",
+        trustMulti: "Torneos en Vivo (4-8 Jugadores)",
+        modesSectionTitle: "Explora Todos los Modos de Juego",
+        labTitle: "¡Prueba la Física y Táctica del Juego Ahora!",
+        arsenalTitle: "Catálogo Completo de 20 Objetos de Choque de Almas",
+        dlVerified: "Verificado y Protegido por Google Play Protect",
+        dlBoxDesc: "¡Descarga gratis la versión oficial completa en Android! Incluye los 8 modos multijugador, cofres de nivel, racha diaria y 12 idiomas.",
+        dlReadyTag: "DESCARGA DIRECTA EN GOOGLE PLAY",
+        dlShareBtn: "Copiar enlace: clashofboxes.com",
+        footerRights: "Todos los derechos reservados © Clash of Boxes"
+      },
+      de: {
+        navSubtitle: "Globale Multiplayer-Box-Arena",
+        navModes: "Spielmodi (8)",
+        navInteractive: "Live-Demo",
+        navArsenal: "Seelen-Arsenal (20)",
+        navRewards: "Belohnungen",
+        navDownload: "Download",
+        navDownloadBtn: "App Laden",
+        heroBadge: "🔥 Neue Saison • 8 Wettkampfspiele in Einer App!",
+        heroTitle1: "Betritt die Arena von",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "Das ultimative Multiplayer-Arenaspiel aus Strategie, Geschwindigkeit, Physik und Glück! Spiele Box-Waage, Kampf der Seelen, Tresor-Code und Eliminierung!",
+        currStars: "Sterne",
+        currCoins: "Münzen",
+        currSpark: "Funke",
+        heroPlaySub: "KOSTENLOS AUF",
+        heroPlayMain: "Google Play • Jetzt Spielen",
+        heroTryInteractive: "Live-Simulator Testen",
+        trustSafe: "100% Geprüft & Sicher",
+        trustLangs: "12 Weltsprachen",
+        trustMulti: "Live-Turniere (4-8 Spieler)",
+        modesSectionTitle: "Entdecke Alle Spielmodi in Clash of Boxes",
+        labTitle: "Teste die Spielphysik direkt im Browser!",
+        arsenalTitle: "Kampf der Seelen: Alle 20 Gegenstände",
+        dlVerified: "Geprüft & Geschützt durch Google Play Protect",
+        dlBoxDesc: "Lade die offizielle Vollversion kostenlos für Android herunter! Mit 8 Live-Arenen, Level-Truhen und 12 Sprachen.",
+        dlReadyTag: "DIREKTER DOWNLOAD IM GOOGLE PLAY STORE",
+        dlShareBtn: "Link kopieren: clashofboxes.com",
+        footerRights: "Alle Rechte vorbehalten © Clash of Boxes"
+      },
+      it: {
+        navSubtitle: "Arena Multiplayer Globale",
+        navModes: "Modalità (8)",
+        navInteractive: "Demo Live",
+        navArsenal: "Arsenale Anime (20)",
+        navRewards: "Premi",
+        navDownload: "Scarica",
+        navDownloadBtn: "Scarica Ora",
+        heroBadge: "🔥 Nuova Stagione • 8 Giochi Competitivi in Un'Unica App!",
+        heroTitle1: "Entra nell'Arena di",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "L'arena multiplayer definitiva che unisce strategia, velocità, fisica e fortuna! Sfida giocatori reali in Bilancia, Scontro delle Anime, Cassaforte e Eliminazione!",
+        currStars: "Stelle",
+        currCoins: "Monete",
+        currSpark: "Scintilla",
+        heroPlaySub: "SCARICA GRATIS SU",
+        heroPlayMain: "Google Play • Gioca Ora",
+        heroTryInteractive: "Prova il Simulatore Live",
+        modesSectionTitle: "Esplora Tutte le Modalità di Clash of Boxes",
+        labTitle: "Prova la Fisica e la Tattica del Gioco nel Browser!",
+        arsenalTitle: "Catalogo Completo dei 20 Oggetti Scontro delle Anime",
+        dlVerified: "Verificato e Protetto da Google Play Protect",
+        dlBoxDesc: "Scarica gratuitamente la versione ufficiale per Android! Include 8 arene live, forzieri livello e 12 lingue.",
+        dlReadyTag: "DOWNLOAD DIRETTO DA GOOGLE PLAY",
+        dlShareBtn: "Copia link: clashofboxes.com",
+        footerRights: "Tutti i diritti riservati © Clash of Boxes"
+      },
+      hi: {
+        navSubtitle: "ग्लोबल मल्टीप्लेयर बॉक्स एरीना",
+        navModes: "गेम मोड (8)",
+        navInteractive: "लाइव डेमो",
+        navArsenal: "सोल्स आर्सनल (20)",
+        navRewards: "इनाम और स्ट्रीक",
+        navDownload: "डाउनलोड",
+        navDownloadBtn: "ऐप डाउनलोड करें",
+        heroBadge: "🔥 नया सीज़न लाइव • एक ही ऐप में 8 शानदार मल्टीप्लेयर गेम्स!",
+        heroTitle1: "प्रवेश करें",
+        heroTitle2: "Clash of Boxes एरीना में",
+        heroDesc: "रणनीति, गति, फिजिक्स और भाग्य का सबसे बेहतरीन मल्टीप्लेयर गेम! बॉक्स स्केल, क्लैश ऑफ सोल्स, सीक्रेट वॉल्ट और एलिमिनेशन टूर्नामेंट में असली खिलाड़ियों से मुकाबला करें!",
+        currStars: "स्टार्स",
+        currCoins: "कॉइन्स",
+        currSpark: "स्पार्क",
+        heroPlaySub: "मुफ्त डाउनलोड करें",
+        heroPlayMain: "Google Play • अभी खेलें",
+        heroTryInteractive: "लाइव मिनी-गेम आज़माएं",
+        modesSectionTitle: "Clash of Boxes के सभी गेम मोड देखें",
+        labTitle: "डाउनलोड करने से पहले गेम का लाइव अनुभव लें!",
+        arsenalTitle: "क्लैश ऑफ सोल्स: सभी 20 आइटम की सूची",
+        dlVerified: "Google Play Protect द्वारा 100% सुरक्षित",
+        dlBoxDesc: "अपने Android फोन पर आधिकारिक गेम मुफ्त में डाउनलोड करें! सभी 8 लाइव टूर्नामेंट, डेली स्ट्रीक और 12 भाषाओं के साथ।",
+        dlReadyTag: "गूगल प्ले स्टोर से सीधा डाउनलोड",
+        dlShareBtn: "लिंक कॉपी करें: clashofboxes.com",
+        footerRights: "सर्वाधिकार सुरक्षित © Clash of Boxes"
+      },
+      ko: {
+        navSubtitle: "글로벌 멀티플레이어 박스 아레나",
+        navModes: "게임 모드 (8)",
+        navInteractive: "라이브 데모",
+        navArsenal: "소울 무기고 (20)",
+        navRewards: "보상 및 스트릭",
+        navDownload: "다운로드",
+        navDownloadBtn: "게임 다운로드",
+        heroBadge: "🔥 새 시즌 오픈 • 하나의 앱에 담긴 8가지 경쟁 아레나 게임!",
+        heroTitle1: "최강의 아레나에 합류하세요",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "전략, 스피드, 물리 엔진, 그리고 행운이 결합된 최고의 멀티플레이어 게임! 박스 저울, 영혼의 충돌, 비밀 금고, 서바이벌 토너먼트에서 전 세계 플레이어와 대결하세요!",
+        currStars: "스타",
+        currCoins: "코인",
+        currSpark: "스파크",
+        heroPlaySub: "무료 다운로드",
+        heroPlayMain: "Google Play • 지금 플레이",
+        heroTryInteractive: "미니 게임 시뮬레이터 체험",
+        modesSectionTitle: "Clash of Boxes의 모든 게임 모드 탐색",
+        labTitle: "브라우저에서 직접 게임 물리 엔진과 전략을 체험해보세요!",
+        arsenalTitle: "영혼의 충돌 (Box Souls) 20가지 아이템 도감",
+        dlVerified: "Google Play 프로텍트 인증 완료",
+        dlBoxDesc: "안드로이드 공식 버전을 지금 무료로 다운로드하세요! 8가지 실시간 토너먼트, 레벨 상자, 12개 언어를 완벽 지원합니다.",
+        dlReadyTag: "GOOGLE PLAY 스토어 공식 다운로드",
+        dlShareBtn: "링크 복사: clashofboxes.com",
+        footerRights: "모든 권리 보유 © Clash of Boxes"
+      },
+      ja: {
+        navSubtitle: "グローバル・マルチプレイヤー・アリーナ",
+        navModes: "ゲームモード (8)",
+        navInteractive: "ライブデモ",
+        navArsenal: "ソウル武器庫 (20)",
+        navRewards: "報酬＆ストリーク",
+        navDownload: "ダウンロード",
+        navDownloadBtn: "今すぐ入手",
+        heroBadge: "🔥 新シーズン開幕 • 8つの対戦ゲームが1つのアプリに！",
+        heroTitle1: "究極のアリーナへ",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "戦略、スピード、物理演算、そして運が融合した究極のマルチプレイヤー対戦ゲーム！ボックス天秤、ソウルクラッシュ、 비밀の金庫、サバイバルトーナメントで世界中のプレイヤーと競い合おう！",
+        currStars: "スター",
+        currCoins: "コイン",
+        currSpark: "スパーク",
+        heroPlaySub: "無料ダウンロード",
+        heroPlayMain: "Google Play • 今すぐプレイ",
+        heroTryInteractive: "ミニゲームをブラウザで試す",
+        modesSectionTitle: "Clash of Boxesの全ゲームモード",
+        labTitle: "ブラウザ上でゲームの物理演算と戦略を体験しよう！",
+        arsenalTitle: "ソウルクラッシュ：全20アイテム図鑑",
+        dlVerified: "Google Play プロテクト検証済み",
+        dlBoxDesc: "Android向け公式フルバージョンを今すぐ無料ダウンロード！8つのライブ対戦モード、レベル宝箱、12言語対応。",
+        dlReadyTag: "GOOGLE PLAY ストアから直接ダウンロード",
+        dlShareBtn: "リンクをコピー: clashofboxes.com",
+        footerRights: "All Rights Reserved © Clash of Boxes"
+      },
+      zh: {
+        navSubtitle: "全球多人竞技宝箱擂台",
+        navModes: "游戏模式 (8)",
+        navInteractive: "在线试玩",
+        navArsenal: "灵魂武器库 (20)",
+        navRewards: "奖励与连胜",
+        navDownload: "立即下载",
+        navDownloadBtn: "下载游戏",
+        heroBadge: "🔥 全新赛季上线 • 一款应用畅玩 8 大竞技模式！",
+        heroTitle1: "踏入终极竞技场",
+        heroTitle2: "Clash of Boxes",
+        heroDesc: "融合策略、速度、物理天平与运气的顶级多人实时对战游戏！在天平宝箱、灵魂冲突、密码金库与淘汰赛中与全球玩家一较高下，赢取星星、金币与火花！",
+        currStars: "星星",
+        currCoins: "金币",
+        currSpark: "火花",
+        heroPlaySub: "免费下载尽在",
+        heroPlayMain: "Google Play • 立即畅玩",
+        heroTryInteractive: "在线体验互动模拟器",
+        modesSectionTitle: "探索 Clash of Boxes 的所有竞技模式",
+        labTitle: "在浏览器中直接体验游戏的物理天平与战术！",
+        arsenalTitle: "灵魂冲突 (Box Souls) 20 种道具全图鉴",
+        dlVerified: "已通过 Google Play Protect 安全认证",
+        dlBoxDesc: "立即在 Android 手机上免费下载官方完整版！包含 8 大实时锦标赛、等级宝箱、每日连胜及 12 种语言支持。",
+        dlReadyTag: "GOOGLE PLAY 官方商店直接下载",
+        dlShareBtn: "复制网站链接: clashofboxes.com",
+        footerRights: "版权所有 © Clash of Boxes"
+      }
+    };
+
+    // =========================================================================
+    // 3. EXACT 20 ITEMS FROM box_souls.dart (kSoulBoxItemsCatalog)
+    // =========================================================================
+    const SOUL_ITEMS_CATALOG = [
+      { key: 'knife', emoji: '🔪', delta: -20, cat: 'attack', color: '#FF2A5F', ar: 'سكين طعن', en: 'Stabbing Knife', fr: 'Couteau', ru: 'Нож', pt: 'Faca' },
+      { key: 'bomb', emoji: '💣', delta: -80, cat: 'attack', color: '#FF5722', ar: 'قنبلة متفجرة', en: 'Explosive Bomb', fr: 'Bombe', ru: 'Бомба', pt: 'Bomba' },
+      { key: 'electric_chair', emoji: '⚡🪑', delta: -90, cat: 'attack', color: '#00E5FF', ar: 'الكرسي الكهربائي', en: 'Electric Chair', fr: 'Chaise Électrique', ru: 'Электростул', pt: 'Cadeira Elétrica' },
+      { key: 'guillotine', emoji: '🩸🪓', delta: -100, cat: 'attack', color: '#D50000', ar: 'المقصلة للإعدام', en: 'Guillotine', fr: 'Guillotine', ru: 'Гильотина', pt: 'Guilhotina' },
+      { key: 'hanging', emoji: '🪢💀', delta: -99, cat: 'attack', color: '#B71C1C', ar: 'الإعدام شنقاً', en: 'Hanging Rope', fr: 'Pendaison', ru: 'Виселица', pt: 'Forca' },
+      { key: 'revive_50', emoji: '💖✨', delta: 50, cat: 'heal', color: '#10B981', ar: 'إحياء +50%', en: 'Revive +50%', fr: 'Soin +50%', ru: 'Исцеление +50%', pt: 'Reviver +50%' },
+      { key: 'pot', emoji: '🍲', delta: -15, cat: 'attack', color: '#FF9800', ar: 'طنجرة', en: 'Cooking Pot', fr: 'Marmite', ru: 'Кастрюля', pt: 'Panela' },
+      { key: 'poison_syringe', emoji: '💉☠️', delta: -70, cat: 'attack', color: '#9C27B0', ar: 'إبرة سم قاتلة', en: 'Poison Syringe', fr: 'Seringue Poison', ru: 'Ядовитый Шприц', pt: 'Seringa de Veneno' },
+      { key: 'life_syringe_100', emoji: '💉💚', delta: 100, cat: 'full_heal', color: '#00E676', ar: 'إبرة حياة 100%', en: 'Full Life 100%', fr: 'Vie 100%', ru: 'Полная Жизнь 100%', pt: 'Vida 100%' },
+      { key: 'shoe', emoji: '👞', delta: -10, cat: 'attack', color: '#8D6E63', ar: 'كندرة / حذاء', en: 'Flying Shoe', fr: 'Chaussure', ru: 'Ботинок', pt: 'Sapato' },
+      { key: 'gas_balloon', emoji: '🎈🤢', delta: -30, cat: 'attack', color: '#CDDC39', ar: 'بلونة غاز خانقة', en: 'Choking Gas', fr: 'Gaz Toxique', ru: 'Газовый Шар', pt: 'Balão de Gás' },
+      { key: 'love_heart', emoji: '❤️', delta: 25, cat: 'heal', color: '#EC407A', ar: 'قلب حب +25%', en: 'Love Heart +25%', fr: 'Cœur +25%', ru: 'Сердце +25%', pt: 'Coração +25%' },
+      { key: 'whip', emoji: '〰️💥', delta: -10, cat: 'attack', color: '#FF7043', ar: 'جلدة السوط', en: 'Whip Strike', fr: 'Fouet', ru: 'Кнут', pt: 'Chicote' },
+      { key: 'pistol', emoji: '🔫', delta: -50, cat: 'attack', color: '#FF5252', ar: 'مسدس ناري', en: 'Pistol Shot', fr: 'Pistolet', ru: 'Пистолет', pt: 'Pistola' },
+      { key: 'hypnotizer', emoji: '💤😴', delta: 0, cat: 'sleep', color: '#7C4DFF', ar: 'منوّم مغناطيسي', en: 'Hypnotizer (Sleep)', fr: 'Hypnotiseur', ru: 'Гипноз (Сон)', pt: 'Hipnotizador' },
+      { key: 'monster', emoji: '👹', delta: -25, cat: 'attack', color: '#E040FB', ar: 'الوحش المرعب', en: 'Scary Monster', fr: 'Monstre', ru: 'Монстр', pt: 'Monstro' },
+      { key: 'shield', emoji: '🛡️', delta: 0, cat: 'shield', color: '#38BDF8', ar: 'درع الحماية', en: 'Protection Shield', fr: 'Bouclier', ru: 'Щит Защиты', pt: 'Escudo Protetor' },
+      { key: 'club', emoji: '🪵💥', delta: -35, cat: 'attack', color: '#A1887F', ar: 'قنوة / هراوة', en: 'Heavy Club', fr: 'Massue', ru: 'Дубина', pt: 'Clava' },
+      { key: 'hand_choke', emoji: '👐😵', delta: -70, cat: 'attack', color: '#FF1744', ar: 'خنق بالأيدي', en: 'Hand Choke', fr: 'Étranglement', ru: 'Удушение', pt: 'Estrangulamento' },
+      { key: 'poop', emoji: '💩', delta: -10, cat: 'attack', color: '#795548', ar: 'قذيفة ساخرة', en: 'Poop Strike', fr: 'Crotte', ru: 'Какашка', pt: 'Cocô' }
+    ];
+
+    let currentLang = 'ar';
+
+    // =========================================================================
+    // 4. LANGUAGE SWITCHER LOGIC
+    // =========================================================================
+    function renderLanguageSelectors() {
+      const menu = document.getElementById('langMenu');
+      const quickBar = document.getElementById('quickLangBar');
+      menu.innerHTML = '';
+      quickBar.innerHTML = '';
+
+      LANGUAGE_META.forEach(lang => {
+        const isActive = lang.code === currentLang;
+
+        // Dropdown Item
+        const btn = document.createElement('button');
+        btn.className = `w-full px-3 py-2 rounded-xl flex items-center justify-between text-xs font-bold transition-all ${
+          isActive ? 'bg-appGold text-black font-black' : 'text-white hover:bg-white/10'
+        }`;
+        btn.onclick = () => {
+          setLanguage(lang.code);
+          document.getElementById('langMenu').classList.add('hidden');
+        };
+        btn.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <span class="text-base">${lang.flag}</span>
+            <span>${lang.name}</span>
+          </div>
+          <span class="text-[10px] opacity-70">${lang.sub}</span>
+        `;
+        menu.appendChild(btn);
+
+        // Quick Bar Pill
+        const pill = document.createElement('button');
+        pill.className = `px-2.5 py-1 rounded-lg text-[11px] font-extrabold flex items-center gap-1.5 transition-all ${
+          isActive
+            ? 'bg-appGold text-black shadow-sm'
+            : 'bg-white/5 text-white/70 hover:bg-white/15 hover:text-white'
+        }`;
+        pill.onclick = () => setLanguage(lang.code);
+        pill.innerHTML = `<span>${lang.flag}</span><span>${lang.name}</span>`;
+        quickBar.appendChild(pill);
+      });
+    }
+
+    function toggleLangMenu() {
+      document.getElementById('langMenu').classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', (e) => {
+      const container = document.getElementById('langDropdownContainer');
+      if (container && !container.contains(e.target)) {
+        document.getElementById('langMenu').classList.add('hidden');
+      }
+    });
+
+    function setLanguage(langCode) {
+      currentLang = langCode;
+      const meta = LANGUAGE_META.find(l => l.code === langCode) || LANGUAGE_META[0];
+      document.documentElement.lang = meta.code;
+      document.documentElement.dir = meta.dir;
+
+      document.getElementById('currentLangFlag').textContent = meta.flag;
+      document.getElementById('currentLangName').textContent = meta.name;
+
+      const dict = { ...TRANSLATIONS.en, ...(TRANSLATIONS[langCode] || {}) };
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      renderLanguageSelectors();
+      renderSoulsCatalog();
+      updateVaultHintUI();
+    }
+
+    // =========================================================================
+    // 5. RENDER 20 SOUL ITEMS CATALOG
+    // =========================================================================
+    function getLocalizedSoulItemName(item) {
+      if (currentLang === 'ar') return item.ar;
+      if (currentLang === 'fr') return item.fr || item.en;
+      if (currentLang === 'ru') return item.ru || item.en;
+      if (currentLang === 'pt') return item.pt || item.en;
+      return item.en;
+    }
+
+    function renderSoulsCatalog() {
+      const grid = document.getElementById('soulsCatalogGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      SOUL_ITEMS_CATALOG.forEach(item => {
+        const name = getLocalizedSoulItemName(item);
+        const badge = item.delta !== 0
+          ? `${item.delta > 0 ? '+' : ''}${item.delta}%`
+          : (item.cat === 'sleep' ? '💤 SLEEP' : '🛡️ SHIELD');
+
+        const card = document.createElement('div');
+        card.className = 'rounded-2xl bg-[#16182D] p-3.5 border flex items-center justify-between gap-2 hover:scale-105 transition-transform';
+        card.style.borderColor = `${item.color}66`;
+        card.innerHTML = `
+          <div class="flex items-center gap-2.5 min-w-0">
+            <span class="text-2xl shrink-0">${item.emoji}</span>
+            <span class="text-xs font-black text-white truncate">${name}</span>
+          </div>
+          <span class="px-2 py-0.5 rounded-lg text-[11px] font-black shrink-0" style="background:${item.color}28; color:${item.color}">
+            ${badge}
+          </span>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // =========================================================================
+    // 6. INTERACTIVE MINI-GAME 1: BALANCE SCALE SIMULATOR (box_scale.dart)
+    // =========================================================================
+    let scaleTarget = 65;
+    let scaleBoxes = [];
+    let selectedScaleIndices = new Set();
+
+    function initScaleSimulator() {
+      selectedScaleIndices.clear();
+      // Generate 6 weights where 2 or 3 boxes sum up to targetWeight
+      const pool = [10, 15, 20, 25, 30, 35, 40, 45];
+      scaleBoxes = [];
+      for (let i = 0; i < 6; i++) {
+        const w = pool[Math.floor(Math.random() * pool.length)] + (i * 2);
+        scaleBoxes.push(w);
+      }
+      // Pick 2 or 3 random boxes to form the guaranteed solution target
+      scaleTarget = scaleBoxes[0] + scaleBoxes[2] + scaleBoxes[4];
+      // Shuffle boxes
+      scaleBoxes.sort(() => Math.random() - 0.5);
+
+      document.getElementById('simTargetWeight').textContent = scaleTarget;
+      document.getElementById('simRightPanText').textContent = scaleTarget;
+      updateScaleSimulatorUI();
+    }
+
+    function toggleScaleBox(idx) {
+      if (selectedScaleIndices.has(idx)) {
+        selectedScaleIndices.delete(idx);
+      } else {
+        selectedScaleIndices.add(idx);
+      }
+      updateScaleSimulatorUI();
+    }
+
+    function updateScaleSimulatorUI() {
+      const grid = document.getElementById('simScaleBoxesGrid');
+      grid.innerHTML = '';
+
+      let currentSum = 0;
+      const chosenWeights = [];
+      selectedScaleIndices.forEach(i => {
+        currentSum += scaleBoxes[i];
+        chosenWeights.push(scaleBoxes[i]);
+      });
+
+      document.getElementById('simMyWeight').textContent = currentSum;
+
+      // Render left pan boxes
+      const leftPan = document.getElementById('simLeftPanBoxes');
+      if (chosenWeights.length === 0) {
+        leftPan.innerHTML = `<span class="text-[10px] text-white/40 font-bold">0 KG</span>`;
+      } else {
+        leftPan.innerHTML = chosenWeights.map(w =>
+          `<span class="px-2 py-0.5 rounded bg-appCyan text-black font-black text-xs shadow">${w}</span>`
+        ).join('');
+      }
+
+      // Calculate physical beam angle
+      const diff = scaleTarget - currentSum;
+      const angle = Math.max(-16, Math.min(16, diff * 0.25));
+      const beam = document.getElementById('scaleBeamContainer');
+      beam.style.transform = `rotate(${angle}deg)`;
+
+      const statusEl = document.getElementById('simScaleStatus');
+      const dict = { ...TRANSLATIONS.en, ...(TRANSLATIONS[currentLang] || {}) };
+      if (currentSum === scaleTarget) {
+        statusEl.textContent = dict.scaleBalancedMsg || "✅ توازن مثالي!";
+        statusEl.className = "text-xs sm:text-sm font-black text-appEmerald animate-bounce";
+      } else {
+        statusEl.textContent = dict.scaleLiveHint || "اختر الصناديق لموازنة الكفتين!";
+        statusEl.className = "text-xs sm:text-sm font-black text-appCyan";
+      }
+
+      scaleBoxes.forEach((weight, idx) => {
+        const isSel = selectedScaleIndices.has(idx);
+        const btn = document.createElement('button');
+        btn.onclick = () => toggleScaleBox(idx);
+        btn.className = `p-4 rounded-2xl border-2 transition-all flex flex-col items-center justify-center ${
+          isSel
+            ? 'bg-gradient-to-br from-appCyan to-blue-600 border-white text-black scale-105 shadow-lg shadow-appCyan/30'
+            : 'bg-[#1E293B] border-appCyan/40 text-white hover:border-appCyan'
+        }`;
+        btn.innerHTML = `
+          <i class="fa-solid ${isSel ? 'fa-circle-check' : 'fa-box'} text-sm mb-1 ${isSel ? 'text-black' : 'text-appGold'}"></i>
+          <div class="text-2xl font-black leading-none">${weight}</div>
+          <div class="text-[10px] font-bold opacity-75">KG</div>
+        `;
+        grid.appendChild(btn);
+      });
+    }
+
+    // =========================================================================
+    // 7. INTERACTIVE MINI-GAME 2: VAULT CODE CRACKER (box_vault.dart)
+    // =========================================================================
+    let vaultSecret = [];
+    let vaultCurrentIdx = 0;
+
+    function initVaultSimulator() {
+      vaultSecret = Array.from({ length: 5 }, () => Math.floor(Math.random() * 9) + 1);
+      vaultCurrentIdx = 0;
+      document.getElementById('simVaultFeedback').textContent = '';
+      renderVaultSimulatorUI();
+    }
+
+    function updateVaultHintUI() {
+      const hintEl = document.getElementById('simVaultHint');
+      if (!hintEl || vaultCurrentIdx >= 5) return;
+      const target = vaultSecret[vaultCurrentIdx];
+      const min = Math.max(1, target - 1);
+      const max = Math.min(9, target + 1);
+      const isEven = target % 2 === 0;
+
+      if (currentLang === 'ar') {
+        hintEl.textContent = `الرقم محصور بين (${min} و ${max}) وهو رقم ${isEven ? 'زوجي' : 'فردي'}`;
+      } else {
+        hintEl.textContent = `Between (${min} - ${max}) • ${isEven ? 'EVEN' : 'ODD'} number`;
+      }
+    }
+
+    function guessVaultDigit(num) {
+      if (vaultCurrentIdx >= 5) return;
+      const target = vaultSecret[vaultCurrentIdx];
+      const fb = document.getElementById('simVaultFeedback');
+
+      if (num === target) {
+        vaultCurrentIdx++;
+        fb.textContent = currentLang === 'ar' ? '✅ صحيح! انتقل للرقم التالي' : '✅ Correct digit unlocked!';
+        fb.className = 'text-sm font-black text-appEmerald';
+        if (vaultCurrentIdx === 5) {
+          fb.textContent = currentLang === 'ar' ? '🏆 مبروك! فتحت الخزنة السرية بالكامل!' : '🏆 GRAND VAULT UNLOCKED!';
+        }
+      } else {
+        fb.textContent = currentLang === 'ar' ? `❌ الرقم ${num} غير صحيح، اقرأ التلميح جيداً!` : `❌ ${num} is wrong, check the hint!`;
+        fb.className = 'text-sm font-black text-appCrimson';
+      }
+      renderVaultSimulatorUI();
+    }
+
+    function renderVaultSimulatorUI() {
+      const row = document.getElementById('simVaultDigitsRow');
+      row.innerHTML = '';
+      for (let i = 0; i < 5; i++) {
+        const unlocked = i < vaultCurrentIdx;
+        const isCurr = i === vaultCurrentIdx;
+        const box = document.createElement('div');
+        box.className = `w-12 h-14 rounded-2xl border-2 flex items-center justify-center font-black text-xl transition-all ${
+          unlocked
+            ? 'bg-appAmber/20 border-appAmber text-appAmber'
+            : isCurr
+              ? 'bg-indigo-900 border-indigo-400 text-white scale-110'
+              : 'bg-[#090A14] border-white/20 text-white/40'
+        }`;
+        box.textContent = unlocked ? vaultSecret[i] : (isCurr ? '?' : '🔒');
+        row.appendChild(box);
+      }
+
+      updateVaultHintUI();
+
+      const keypad = document.getElementById('simVaultKeypad');
+      keypad.innerHTML = '';
+      for (let n = 1; n <= 9; n++) {
+        const btn = document.createElement('button');
+        btn.onclick = () => guessVaultDigit(n);
+        btn.className = 'h-14 rounded-2xl bg-[#1E293B] hover:bg-appAmber hover:text-black border border-appAmber/40 font-black text-xl text-white transition-all';
+        btn.textContent = n;
+        keypad.appendChild(btn);
+      }
+    }
+
+    // =========================================================================
+    // 8. INTERACTIVE MINI-GAME 3: CLASH OF SOULS SIMULATOR (box_souls.dart)
+    // =========================================================================
+    let simSoulHp = 100;
+    let simSoulBoxes = [];
+
+    function initSoulsSimulator() {
+      simSoulHp = 100;
+      const shuffled = [...SOUL_ITEMS_CATALOG].sort(() => Math.random() - 0.5).slice(0, 12);
+      simSoulBoxes = shuffled.map((item, idx) => ({ idx, opened: false, item }));
+      updateSoulsSimulatorUI();
+    }
+
+    function openSimSoulBox(idx) {
+      const cell = simSoulBoxes[idx];
+      if (!cell || cell.opened) return;
+      cell.opened = true;
+
+      const item = cell.item;
+      if (item.cat === 'full_heal') {
+        simSoulHp = 100;
+      } else if (item.delta !== 0) {
+        simSoulHp = Math.max(0, Math.min(100, simSoulHp + item.delta));
+      }
+
+      const log = document.getElementById('simSoulLog');
+      const name = getLocalizedSoulItemName(item);
+      const deltaTxt = item.delta !== 0 ? `${item.delta > 0 ? '+' : ''}${item.delta}%` : item.cat.toUpperCase();
+      log.innerHTML = `
+        <div class="text-3xl mb-1">${item.emoji}</div>
+        <div class="text-sm font-black" style="color:${item.color}">${name} (${deltaTxt})</div>
+      `;
+
+      updateSoulsSimulatorUI();
+    }
+
+    function updateSoulsSimulatorUI() {
+      const hpVal = document.getElementById('simSoulValue');
+      const hpBar = document.getElementById('simSoulBar');
+      hpVal.textContent = `${simSoulHp}%`;
+      hpBar.style.width = `${simSoulHp}%`;
+
+      const barColor = simSoulHp > 60 ? '#10B981' : (simSoulHp > 30 ? '#F59E0B' : '#FF2A5F');
+      hpBar.style.backgroundColor = barColor;
+      hpVal.style.color = barColor;
+
+      const grid = document.getElementById('simSoulsGrid');
+      grid.innerHTML = '';
+
+      simSoulBoxes.forEach((cell, i) => {
+        const btn = document.createElement('button');
+        btn.onclick = () => openSimSoulBox(i);
+        if (cell.opened) {
+          btn.className = 'h-20 rounded-2xl bg-[#0E101C] border p-2 flex flex-col items-center justify-center';
+          btn.style.borderColor = cell.item.color;
+          btn.innerHTML = `
+            <span class="text-2xl">${cell.item.emoji}</span>
+            <span class="text-[10px] font-black text-white/75 truncate w-full text-center">${getLocalizedSoulItemName(cell.item)}</span>
+          `;
+        } else {
+          btn.className = 'h-20 rounded-2xl bg-gradient-to-br from-[#331E46] to-[#1B1D36] border border-appGold/60 hover:scale-105 transition-transform flex flex-col items-center justify-center';
+          btn.innerHTML = `
+            <i class="fa-solid fa-box text-appGold text-xl mb-1"></i>
+            <span class="text-[10px] font-black text-white">#${i + 1}</span>
+          `;
+        }
+        grid.appendChild(btn);
+      });
+    }
+
+    // Switch Interactive Lab Tabs
+    function switchLabTab(tab) {
+      ['scale', 'vault', 'souls'].forEach(t => {
+        const panel = document.getElementById(`labPanel-${t}`);
+        const btn = document.getElementById(`tabBtn-${t}`);
+        if (t === tab) {
+          panel.classList.remove('hidden');
+          panel.classList.add('grid');
+          btn.className = 'px-4 py-2.5 rounded-xl font-black text-xs sm:text-sm bg-appCyan text-black transition-all flex items-center gap-2';
+        } else {
+          panel.classList.add('hidden');
+          panel.classList.remove('grid');
+          btn.className = 'px-4 py-2.5 rounded-xl font-black text-xs sm:text-sm text-white/75 hover:text-white transition-all flex items-center gap-2';
+        }
+      });
+    }
+
+    // Cycle Phone Mockup Featured Card
+    let mockIndex = 0;
+    const mockModes = [
+      { emoji: '⚔️📦', ar: 'صراع الأرواح • 24 صندوقاً قاتلاً', en: 'Clash of Souls • 24 Deadly Boxes' },
+      { emoji: '⚖️📦', ar: 'ميزان الصندوق • توازن فيزيائي حي', en: 'Box Scale • Live Physics Balance' },
+      { emoji: '🔐📦', ar: 'صندوق الخزنة • 5 أرقام سرية', en: 'Box Vault • 5 Secret Digits' },
+      { emoji: '🎡✨', ar: 'عجلة الحظ ثلاثية الأبعاد', en: '3D Casino Fortune Wheel' }
+    ];
+    function cycleFeaturedMockup() {
+      mockIndex = (mockIndex + 1) % mockModes.length;
+      const item = mockModes[mockIndex];
+      document.getElementById('mockFeaturedEmoji').textContent = item.emoji;
+      document.getElementById('mockFeaturedTitle').textContent = currentLang === 'ar' ? item.ar : item.en;
+    }
+
+    // Copy Website Link
+    function copyWebsiteLink() {
+      const dummy = document.createElement('textarea');
+      dummy.value = 'https://clashofboxes.com';
+      document.body.appendChild(dummy);
+      dummy.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummy);
+
+      const txt = document.getElementById('copyLinkBtnText');
+      txt.textContent = currentLang === 'ar' ? '✅ تم نسخ الرابط: clashofboxes.com' : '✅ Copied: clashofboxes.com';
+    }
+
+    // DNS Guide Modal
+    function openDnsGuideModal() {
+      document.getElementById('dnsGuideModal').classList.remove('hidden');
+    }
+    function closeDnsGuideModal() {
+      document.getElementById('dnsGuideModal').classList.add('hidden');
+    }
+
+    // Initialize Everything on Load
+    window.onload = function () {
+      setLanguage('ar');
+      initScaleSimulator();
+      initVaultSimulator();
+      initSoulsSimulator();
+    };
+  </script>
+</body>
+</html>
