@@ -938,7 +938,7 @@
 
   </main>
 
-  <!-- ================= FOOTER & DNS GUIDE TRIGGER ================= -->
+  <!-- ================= FOOTER ================= -->
   <footer class="border-t border-white/10 bg-[#06070E] py-10 px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-start">
       <div class="flex items-center gap-3">
@@ -952,81 +952,13 @@
       </div>
 
       <div class="flex flex-wrap items-center justify-center gap-3">
-        <button onclick="openDnsGuideModal()" class="px-4 py-2 rounded-xl bg-appSurface hover:bg-appCard border border-appCyan/40 text-appCyan text-xs font-black flex items-center gap-2 transition-all">
-          <i class="fa-brands fa-github"></i>
-          <span>دليل ربط GitHub بدومين Hostinger (لصاحب الموقع)</span>
-        </button>
+        <a href="#download-box" class="px-4 py-2 rounded-xl bg-appSurface hover:bg-appCard border border-appGold/40 text-appGold text-xs font-black flex items-center gap-2 transition-all">
+          <i class="fa-brands fa-google-play"></i>
+          <span data-i18n="navDownloadBtn">حمل اللعبة</span>
+        </a>
       </div>
     </div>
   </footer>
-
-  <!-- ================= GITHUB + HOSTINGER DNS GUIDE MODAL ================= -->
-  <div id="dnsGuideModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-[#141629] border-2 border-appCyan rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-5 text-right" dir="rtl">
-      <div class="flex items-center justify-between border-b border-white/10 pb-4">
-        <div class="flex items-center gap-3">
-          <i class="fa-brands fa-github text-3xl text-appCyan"></i>
-          <h3 class="text-xl font-black text-white">طريقة رفع الصفحة على GitHub وربطها بدومين Hostinger مجاناً</h3>
-        </div>
-        <button onclick="closeDnsGuideModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-red-500/30 text-white flex items-center justify-center">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <div class="space-y-4 text-sm text-white/85 leading-relaxed">
-        <div class="p-4 rounded-2xl bg-appEmerald/10 border border-appEmerald/40 text-appEmerald font-bold">
-          ✅ بهذه الطريقة الرسمية، عندما يدخل أي زائر إلى <strong>clashofboxes.com</strong> ستفتح له هذه الصفحة كاملة وبشهادة أمان <strong>HTTPS</strong> مجاناً، بدون شراء استضافة على هوستنجر، و<strong>لن يتغير الرابط في شريط المتصفح أبداً</strong>!
-        </div>
-
-        <h4 class="font-black text-appGold text-base">الخطوة 1: تعديل رابط متجر جوجل بلاي (إن رغبت)</h4>
-        <p>داخل ملف <code>index.html</code> ابحث عن السطر الذي يحتوي على <code>googlePlayDownloadLink</code> وضع رابط تطبيقك المباشر على Google Play.</p>
-
-        <h4 class="font-black text-appGold text-base">الخطوة 2: رفع الملف على GitHub</h4>
-        <ol class="list-decimal list-inside space-y-1.5">
-          <li>أنشئ حساباً مجانياً على <strong>github.com</strong> واضغط على <strong>New Repository</strong>.</li>
-          <li>سمِّ المستودع مثلاً <code>clashofboxes-web</code> واجعله <strong>Public</strong> ثم اضغط <strong>Create repository</strong>.</li>
-          <li>اضغط <strong>uploading an existing file</strong>، واحفظ هذا الكود في جهازك باسم <code>index.html</code> وارفعه، ثم اضغط <strong>Commit changes</strong>.</li>
-        </ol>
-
-        <h4 class="font-black text-appGold text-base">الخطوة 3: إعداد DNS داخل لوحة تحكم Hostinger</h4>
-        <p>ادخل إلى حسابك في <strong>Hostinger</strong> &larr; قسم <strong>Domains (النطاقات)</strong> &larr; اختر <strong>clashofboxes.com</strong> &larr; اضغط على <strong>DNS / Nameservers</strong>:</p>
-        <div class="overflow-x-auto">
-          <table class="w-full text-xs text-left border border-white/15 rounded-xl overflow-hidden" dir="ltr">
-            <thead class="bg-white/10 text-appCyan font-black">
-              <tr>
-                <th class="p-2.5">Type</th>
-                <th class="p-2.5">Name</th>
-                <th class="p-2.5">Points to / Target</th>
-                <th class="p-2.5">TTL</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-white/10 font-mono">
-              <tr><td class="p-2">A</td><td class="p-2">@</td><td class="p-2">185.199.108.153</td><td class="p-2">3600</td></tr>
-              <tr><td class="p-2">A</td><td class="p-2">@</td><td class="p-2">185.199.109.153</td><td class="p-2">3600</td></tr>
-              <tr><td class="p-2">A</td><td class="p-2">@</td><td class="p-2">185.199.110.153</td><td class="p-2">3600</td></tr>
-              <tr><td class="p-2">A</td><td class="p-2">@</td><td class="p-2">185.199.111.153</td><td class="p-2">3600</td></tr>
-              <tr><td class="p-2">CNAME</td><td class="p-2">www</td><td class="p-2">YOUR_GITHUB_USERNAME.github.io</td><td class="p-2">3600</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-xs text-white/60">* ملاحظة: احذف أي سجل <code>A</code> قديم يشير إلى IP افتراضي لصفحة انتظار هوستنجر (Parking Page).</p>
-
-        <h4 class="font-black text-appGold text-base">الخطوة 4: تفعيل الدومين في GitHub Pages</h4>
-        <ol class="list-decimal list-inside space-y-1.5">
-          <li>في مستودعك على GitHub اذهب إلى <strong>Settings</strong> &larr; <strong>Pages</strong>.</li>
-          <li>تحت قسم <strong>Build and deployment</strong> اختر الفرع <code>main</code> واضغط <strong>Save</strong>.</li>
-          <li>في خانة <strong>Custom domain</strong> اكتب: <code>clashofboxes.com</code> واضغط <strong>Save</strong>.</li>
-          <li>بعد دقائق، فعّل خيار <strong>Enforce HTTPS</strong> ليصبح الموقع محمياً بالقفل الأخضر.</li>
-        </ol>
-      </div>
-
-      <div class="pt-3 text-center">
-        <button onclick="closeDnsGuideModal()" class="px-8 py-3 rounded-xl btn-3d-gold text-black font-black text-sm">
-          فهمت، إغلاق الدليل
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- ================= JAVASCRIPT: 12 LANGUAGES + INTERACTIVE SIMULATORS ================= -->
   <script>
@@ -2162,14 +2094,6 @@
 
       const txt = document.getElementById('copyLinkBtnText');
       txt.textContent = currentLang === 'ar' ? '✅ تم نسخ الرابط: clashofboxes.com' : '✅ Copied: clashofboxes.com';
-    }
-
-    // DNS Guide Modal
-    function openDnsGuideModal() {
-      document.getElementById('dnsGuideModal').classList.remove('hidden');
-    }
-    function closeDnsGuideModal() {
-      document.getElementById('dnsGuideModal').classList.add('hidden');
     }
 
     // Initialize Everything on Load
