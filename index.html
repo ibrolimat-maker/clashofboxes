@@ -1013,16 +1013,22 @@
 
   </main>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- ================= FOOTER (تمت إضافة الروابط هنا) ================= -->
   <footer class="border-t border-white/10 bg-[#06070E] py-10 px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-start">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-start">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-appGold text-black flex items-center justify-center font-black">
+        <div class="w-9 h-9 rounded-xl bg-appGold text-black flex items-center justify-center font-black shrink-0">
           <i class="fa-solid fa-boxes-stacked"></i>
         </div>
         <div>
           <div class="font-black text-sm text-white">CLASH OF BOXES • clashofboxes.com</div>
           <div class="text-xs text-white/50" data-i18n="footerRights">جميع الحقوق محفوظة © صراع الصناديق</div>
+          <!-- الروابط القانونية الجديدة -->
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 mt-3 text-[11px] font-bold text-white/40">
+            <a href="/privacy.html" class="hover:text-appGold transition-colors" data-i18n="footerPrivacy">سياسة الخصوصية</a>
+            <a href="/terms.html" class="hover:text-appGold transition-colors" data-i18n="footerTerms">شروط الخدمة</a>
+            <a href="/deleteaccount.html" class="hover:text-appCrimson transition-colors" data-i18n="footerDelete">حذف الحساب</a>
+          </div>
         </div>
       </div>
 
@@ -1035,7 +1041,7 @@
     </div>
   </footer>
 
-  <!-- ================= JAVASCRIPT: 12 LANGUAGES + INTERACTIVE SIMULATORS ================= -->
+  <!-- ================= JAVASCRIPT ================= -->
   <script>
     // =========================================================================
     // 1. METADATA FOR ALL 12 LANGUAGES (Matching main.dart _languageMeta)
@@ -1056,7 +1062,7 @@
     ];
 
     // =========================================================================
-    // 2. COMPLETE TRANSLATIONS FOR ALL 12 LANGUAGES
+    // 2. COMPLETE TRANSLATIONS FOR ALL 12 LANGUAGES (مع إضافة الروابط القانونية)
     // =========================================================================
     const TRANSLATIONS = {
       ar: {
@@ -1155,7 +1161,10 @@
         dlFeat3: "مكافآت يومية ومقتنيات",
         dlReadyTag: "رابط التحميل المباشر من المتجر",
         dlShareBtn: "نسخ رابط الموقع: clashofboxes.com",
-        footerRights: "جميع الحقوق محفوظة © صراع الصناديق"
+        footerRights: "جميع الحقوق محفوظة © صراع الصناديق",
+        footerPrivacy: "سياسة الخصوصية",
+        footerTerms: "شروط الخدمة",
+        footerDelete: "حذف الحساب"
       },
       en: {
         navSubtitle: "Global Multiplayer Box Arena",
@@ -1253,7 +1262,10 @@
         dlFeat3: "Daily Rewards & Collectibles",
         dlReadyTag: "DIRECT GOOGLE PLAY STORE DOWNLOAD",
         dlShareBtn: "Copy Website Link: clashofboxes.com",
-        footerRights: "All Rights Reserved © Clash of Boxes"
+        footerRights: "All Rights Reserved © Clash of Boxes",
+        footerPrivacy: "Privacy Policy",
+        footerTerms: "Terms of Service",
+        footerDelete: "Delete Account"
       },
       fr: {
         navSubtitle: "Arène Multijoueur Mondiale",
@@ -1351,7 +1363,10 @@
         dlFeat3: "Bonus Quotidiens & Collections",
         dlReadyTag: "LIEN OFFICIEL GOOGLE PLAY STORE",
         dlShareBtn: "Copier le lien : clashofboxes.com",
-        footerRights: "Tous droits réservés © Clash of Boxes"
+        footerRights: "Tous droits réservés © Clash of Boxes",
+        footerPrivacy: "Politique de confidentialité",
+        footerTerms: "Conditions d'utilisation",
+        footerDelete: "Supprimer le compte"
       },
       ru: {
         navSubtitle: "Мировая Многопользовательская Арена",
@@ -1449,7 +1464,10 @@
         dlFeat3: "Ежедневные Бонусы и Награды",
         dlReadyTag: "ПРЯМАЯ ССЫЛКА НА GOOGLE PLAY",
         dlShareBtn: "Скопировать ссылку: clashofboxes.com",
-        footerRights: "Все права защищены © Clash of Boxes"
+        footerRights: "Все права защищены © Clash of Boxes",
+        footerPrivacy: "Политика конфиденциальности",
+        footerTerms: "Условия использования",
+        footerDelete: "Удалить аккаунт"
       },
       pt: {
         navSubtitle: "Arena Multiplayer Global",
@@ -1547,7 +1565,10 @@
         dlFeat3: "Bônus Diários e Colecionáveis",
         dlReadyTag: "DOWNLOAD DIRETO NA GOOGLE PLAY STORE",
         dlShareBtn: "Copiar link: clashofboxes.com",
-        footerRights: "Todos os direitos reservados © Clash of Boxes"
+        footerRights: "Todos os direitos reservados © Clash of Boxes",
+        footerPrivacy: "Política de Privacidade",
+        footerTerms: "Termos de Serviço",
+        footerDelete: "Excluir Conta"
       },
       es: {
         navSubtitle: "Arena Multijugador Global",
@@ -1577,7 +1598,10 @@
         dlBoxDesc: "¡Descarga gratis la versión oficial completa en Android! Incluye los 8 modos multijugador, cofres de nivel, racha diaria y 12 idiomas.",
         dlReadyTag: "DESCARGA DIRECTA EN GOOGLE PLAY",
         dlShareBtn: "Copiar enlace: clashofboxes.com",
-        footerRights: "Todos los derechos reservados © Clash of Boxes"
+        footerRights: "Todos los derechos reservados © Clash of Boxes",
+        footerPrivacy: "Política de Privacidad",
+        footerTerms: "Términos de Servicio",
+        footerDelete: "Eliminar Cuenta"
       },
       de: {
         navSubtitle: "Globale Multiplayer-Box-Arena",
@@ -1607,7 +1631,10 @@
         dlBoxDesc: "Lade die offizielle Vollversion kostenlos für Android herunter! Mit 8 Live-Arenen, Level-Truhen und 12 Sprachen.",
         dlReadyTag: "DIREKTER DOWNLOAD IM GOOGLE PLAY STORE",
         dlShareBtn: "Link kopieren: clashofboxes.com",
-        footerRights: "Alle Rechte vorbehalten © Clash of Boxes"
+        footerRights: "Alle Rechte vorbehalten © Clash of Boxes",
+        footerPrivacy: "Datenschutzrichtlinie",
+        footerTerms: "Nutzungsbedingungen",
+        footerDelete: "Konto löschen"
       },
       it: {
         navSubtitle: "Arena Multiplayer Globale",
@@ -1634,7 +1661,10 @@
         dlBoxDesc: "Scarica gratuitamente la versione ufficiale per Android! Include 8 arene live, forzieri livello e 12 lingue.",
         dlReadyTag: "DOWNLOAD DIRETTO DA GOOGLE PLAY",
         dlShareBtn: "Copia link: clashofboxes.com",
-        footerRights: "Tutti i diritti riservati © Clash of Boxes"
+        footerRights: "Tutti i diritti riservati © Clash of Boxes",
+        footerPrivacy: "Informativa sulla privacy",
+        footerTerms: "Termini di servizio",
+        footerDelete: "Elimina account"
       },
       hi: {
         navSubtitle: "ग्लोबल मल्टीप्लेयर बॉक्स एरीना",
@@ -1661,7 +1691,10 @@
         dlBoxDesc: "अपने Android फोन पर आधिकारिक गेम मुफ्त में डाउनलोड करें! सभी 8 लाइव टूर्नामेंट, डेली स्ट्रीक और 12 भाषाओं के साथ।",
         dlReadyTag: "गूगल प्ले स्टोर से सीधा डाउनलोड",
         dlShareBtn: "लिंक कॉपी करें: clashofboxes.com",
-        footerRights: "सर्वाधिकार सुरक्षित © Clash of Boxes"
+        footerRights: "सर्वाधिकार सुरक्षित © Clash of Boxes",
+        footerPrivacy: "गोपनीयता नीति",
+        footerTerms: "सेवा की शर्तें",
+        footerDelete: "खाता हटाएं"
       },
       ko: {
         navSubtitle: "글로벌 멀티플레이어 박스 아레나",
@@ -1688,7 +1721,10 @@
         dlBoxDesc: "안드로이드 공식 버전을 지금 무료로 다운로드하세요! 8가지 실시간 토너먼트, 레벨 상자, 12개 언어를 완벽 지원합니다.",
         dlReadyTag: "GOOGLE PLAY 스토어 공식 다운로드",
         dlShareBtn: "링크 복사: clashofboxes.com",
-        footerRights: "모든 권리 보유 © Clash of Boxes"
+        footerRights: "모든 권리 보유 © Clash of Boxes",
+        footerPrivacy: "개인정보 처리방침",
+        footerTerms: "서비스 약관",
+        footerDelete: "계정 삭제"
       },
       ja: {
         navSubtitle: "グローバル・マルチプレイヤー・アリーナ",
@@ -1715,7 +1751,10 @@
         dlBoxDesc: "Android向け公式フルバージョンを今すぐ無料ダウンロード！8つのライブ対戦モード、レベル宝箱、12言語対応。",
         dlReadyTag: "GOOGLE PLAY ストアから直接ダウンロード",
         dlShareBtn: "リンクをコピー: clashofboxes.com",
-        footerRights: "All Rights Reserved © Clash of Boxes"
+        footerRights: "All Rights Reserved © Clash of Boxes",
+        footerPrivacy: "プライバシーポリシー",
+        footerTerms: "利用規約",
+        footerDelete: "アカウント削除"
       },
       zh: {
         navSubtitle: "全球多人竞技宝箱擂台",
@@ -1742,7 +1781,10 @@
         dlBoxDesc: "立即在 Android 手机上免费下载官方完整版！包含 8 大实时锦标赛、等级宝箱、每日连胜及 12 种语言支持。",
         dlReadyTag: "GOOGLE PLAY 官方商店直接下载",
         dlShareBtn: "复制网站链接: clashofboxes.com",
-        footerRights: "版权所有 © Clash of Boxes"
+        footerRights: "版权所有 © Clash of Boxes",
+        footerPrivacy: "隐私政策",
+        footerTerms: "服务条款",
+        footerDelete: "删除帐户"
       }
     };
 
